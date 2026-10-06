@@ -1,0 +1,62 @@
+{
+ "dev": {
+  "n_frames": 92160,
+  "unsafe": 1539,
+  "prevalence_unsafe": 0.01669921875,
+  "prevalence_attacker": 0.012445746527777777,
+  "attacker_induced": 1147,
+  "unsafe_attacked_track_not_attacker_induced": 94,
+  "unsafe_benign_track": 298
+ },
+ "lockbox": {
+  "n_frames": 184320,
+  "unsafe": 2752,
+  "prevalence_unsafe": 0.014930555555555556,
+  "prevalence_attacker": 0.010460069444444444,
+  "attacker_induced": 1928,
+  "unsafe_attacked_track_not_attacker_induced": 272,
+  "unsafe_benign_track": 552
+ }
+}
+rule__RULE train=unsafe done (27s)
+rule__RULE train=attacker done (28s)
+proto__MLPpub train=unsafe done (46s)
+proto__MLPpub train=attacker done (64s)
+edgefeat__HGB train=unsafe done (74s)
+edgefeat__HGB train=attacker done (86s)
+gat__GAT train=unsafe done (186s)
+gat__GAT train=attacker done (261s)
+mpnn__MPNN train=unsafe done (323s)
+mpnn__MPNN train=attacker done (375s)
+rule__RULE | train=unsafe | test=unsafe            ROC 0.801 PR 0.265 [0.193, 0.346]
+rule__RULE | train=unsafe | test=attacker          ROC 0.976 PR 0.352 [0.269, 0.446]
+rule__RULE | train=attacker | test=unsafe          ROC 0.801 PR 0.265 [0.193, 0.346]
+rule__RULE | train=attacker | test=attacker        ROC 0.976 PR 0.352 [0.269, 0.446]
+proto__MLPpub | train=unsafe | test=unsafe         ROC 0.818 PR 0.198 [0.145, 0.256]
+proto__MLPpub | train=unsafe | test=attacker       ROC 0.914 PR 0.249 [0.187, 0.312]
+proto__MLPpub | train=attacker | test=unsafe       ROC 0.777 PR 0.192 [0.135, 0.252]
+proto__MLPpub | train=attacker | test=attacker     ROC 0.945 PR 0.246 [0.182, 0.310]
+edgefeat__HGB | train=unsafe | test=unsafe         ROC 0.849 PR 0.442 [0.349, 0.526]
+edgefeat__HGB | train=unsafe | test=attacker       ROC 0.973 PR 0.597 [0.512, 0.672]
+edgefeat__HGB | train=attacker | test=unsafe       ROC 0.841 PR 0.439 [0.350, 0.518]
+edgefeat__HGB | train=attacker | test=attacker     ROC 0.988 PR 0.599 [0.517, 0.668]
+gat__GAT | train=unsafe | test=unsafe              ROC 0.926 PR 0.481 [0.415, 0.542]
+gat__GAT | train=unsafe | test=attacker            ROC 0.967 PR 0.591 [0.520, 0.648]
+gat__GAT | train=attacker | test=unsafe            ROC 0.817 PR 0.443 [0.368, 0.514]
+gat__GAT | train=attacker | test=attacker          ROC 0.981 PR 0.607 [0.546, 0.660]
+mpnn__MPNN | train=unsafe | test=unsafe            ROC 0.987 PR 0.688 [0.629, 0.739]
+mpnn__MPNN | train=unsafe | test=attacker          ROC 0.991 PR 0.700 [0.626, 0.758]
+mpnn__MPNN | train=attacker | test=unsafe          ROC 0.965 PR 0.560 [0.489, 0.626]
+mpnn__MPNN | train=attacker | test=attacker        ROC 0.992 PR 0.698 [0.637, 0.749]
+ceiling_unsafe | test=unsafe                       ROC 0.994 PR 0.843 [0.803, 0.874]
+ceiling_attacker | test=attacker                   ROC 0.997 PR 0.850 [0.808, 0.880]
+mpnn__MPNN | train=attacker - rule__RULE | train=attacker | test=attacker        +0.346 [+0.256, +0.417] p<=0 0.000
+mpnn__MPNN | train=attacker - gat__GAT | train=attacker | test=attacker          +0.091 [+0.057, +0.126] p<=0 0.000
+mpnn__MPNN | train=attacker - edgefeat__HGB | train=attacker | test=attacker     +0.100 [+0.061, +0.144] p<=0 0.000
+mpnn__MPNN | train=attacker - proto__MLPpub | train=attacker | test=attacker     +0.452 [+0.394, +0.508] p<=0 0.000
+proto__MLPpub | train=attacker - proto__MLPpub | train=unsafe | test=attacker    -0.003 [-0.017, +0.010] p<=0 0.679
+edgefeat__HGB | train=attacker - edgefeat__HGB | train=unsafe | test=attacker    +0.002 [-0.023, +0.024] p<=0 0.443
+gat__GAT | train=attacker - gat__GAT | train=unsafe | test=attacker              +0.016 [-0.005, +0.039] p<=0 0.075
+mpnn__MPNN | train=attacker - mpnn__MPNN | train=unsafe | test=attacker          -0.002 [-0.024, +0.027] p<=0 0.554
+mpnn__MPNN | train=attacker - mpnn__MPNN | train=unsafe | test=unsafe            -0.128 [-0.175, -0.088] p<=0 1.000
+done 1062s

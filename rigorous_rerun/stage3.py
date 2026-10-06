@@ -65,7 +65,8 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                E_geo=np.zeros((rows, K, 3), np.float32), E_w=np.zeros((rows, K), np.float32),
                y_att=np.zeros((rows, K), np.int64), sev=np.zeros(rows, np.int64),
                oracle_score=np.zeros(rows, np.float32), peer_term=np.zeros(rows, np.float32),
-               own_prov=np.zeros(rows, np.float32), atk_id=np.zeros(rows, np.int64), atk_ch=np.zeros(rows, np.int64))
+               own_prov=np.zeros(rows, np.float32), atk_id=np.zeros(rows, np.int64), atk_ch=np.zeros(rows, np.int64),
+               atk_term=np.zeros(rows, np.float32), s_noisy=np.zeros(rows, np.float32))
     user_rows = np.zeros((rows, 20), np.float32)
     r = 0
     for cid in range(n_cohorts):
@@ -138,7 +139,9 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                 o["E_w"][sl] = 1 / (1 + np.exp(-(1.5 * np.exp(-d3[..., 0] / 3) + d3[..., 1] + 0.75 * d3[..., 2])))
                 o["y_att"][sl] = np.array([[1 if (attributed and j == aid) else 0 for j in js]] * T)
                 o["sev"][sl] = sev; o["oracle_score"][sl] = score; o["peer_term"][sl] = peer
-                o["own_prov"][sl] = own; o["atk_id"][sl] = aid
+                o["own_prov"][sl] = own; o["atk_id"][sl] = aid; o["s_noisy"][sl] = s
+                if is_atk and i != aid and not dose and agg == "sum":   # attacker term (Stage 4)
+                    o["atk_term"][sl] = g * C[aid]
                 o["atk_ch"][sl] = 0 if not ach else PEER_NAMES.index(ach) + 1
                 r += T
     out["V_raw"] = user_rows

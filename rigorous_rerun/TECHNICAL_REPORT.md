@@ -478,3 +478,28 @@ Pre-registered questions:
 * Attribution (`spikes`): no. Learned top-1 is 0.946 and rule top-1 is 0.961. In no variant does the learned top-1 exceed the rule by more than 0.001. Learned edge PR-AUC (0.84–0.97) stays far above the rule's (0.40–0.53).
 
 Not pre-registered as a question but reported: at g2 the rule beats the MPNN. The difference is −0.155 [−0.305, +0.003], and 97% of bootstrap draws favour the rule. At g3 the two do not differ (+0.052 [−0.076, +0.186]). The MPNN's advantage needs roughly ≥1% unsafe frames.
+
+## 13. Stage 4: attacker-induced label (PREREGISTRATION_v5)
+Code: `stage4.py`. Results: `outputs_v2/stage4/summary.json`, log `outputs_v2/logs/stage4.log`.
+The Stage-3 generator reproduces the v2 main and lock-box labels and inputs exactly (asserted).
+A frame is attacker-induced if s > 0.30 and s − g·c_{a→i} ≤ 0.30, with the same noise draw.
+
+Composition of the 2,752 lock-box unsafe frames:
+* attacker-induced: 1,928 (70.1%);
+* unsafe on attacked tracks but not attacker-induced: 272 (9.9%);
+* on benign tracks: 552 (20.1%).
+
+Lock-box PR-AUC [95% cohort-bootstrap CI]:
+
+| model | train unsafe → test unsafe | train unsafe → test attacker | train attacker → test unsafe | train attacker → test attacker |
+|---|---|---|---|---|
+| rule | 0.265 | 0.352 | 0.265 | 0.352 [0.269, 0.446] |
+| prototype | 0.198 | 0.249 | 0.192 | 0.246 |
+| edge HGB | 0.442 | 0.597 | 0.439 | 0.599 |
+| GAT | 0.481 | 0.591 | 0.443 | 0.607 [0.546, 0.660] |
+| MPNN | 0.688 | 0.700 | 0.560 | 0.698 [0.637, 0.749] |
+| ceiling | 0.843 | 0.850 | 0.843 | 0.850 |
+
+* Primary question: yes. On the attacker target, the MPNN exceeds the GAT by +0.091 [+0.057, +0.126], the edge HGB by +0.100 [+0.061, +0.144], the rule by +0.346 and the prototype by +0.452.
+* Secondary question: no. Training on the attacker label does not help on the attacker target for any model (MPNN −0.002 [−0.024, +0.027]). It costs the MPNN on the unsafe target (−0.128 [−0.175, −0.088]).
+* The MPNN's lead over the GAT and the edge HGB is smaller on the attacker target (about 0.09–0.10) than on the unsafe target (about 0.21–0.25).
