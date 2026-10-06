@@ -39,3 +39,11 @@ removed for `split`), realised and expected.
   MPNN's recall of attacker-induced frames at the 10% budget is >= 0.80 under every attack whose
   realised harm is >= 25% of the standard attack's. Otherwise the sentence is removed and the
   failing attack is reported as a limitation.
+
+## Amendment (2026-10-06, written after generating the attack corpora and computing harm, before any detector was trained or scored for Stage 5)
+The `oov_audio` attacker as specified places itself as close as 0.16 m to a victim (1st
+percentile; benign pairs: 0.69 m), because nothing in the generator stops avatars from overlapping
+and the out-of-view audio term grows as 1/distance. Its harm is 10x that of the standard attack.
+`oov_audio` is still reported exactly as specified. An added variant, `oov_audio_d1`, is the
+same attacker restricted to positions at least 1.0 m from every other user. It is labelled as an
+amendment wherever it is reported, and the decision rule applies to both variants.
