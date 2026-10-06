@@ -54,6 +54,21 @@ def _rot(ori, deg):
     return np.array([c * ori[0] - s * ori[1], s * ori[0] + c * ori[1], ori[2]])
 
 
+def _oov_pose(rng, poses, aid, n_cand=64, min_d=0.0):
+    """Stage 5: among n_cand random positions, the one outside every other user's FOV with the
+    largest sum of 1/distance to them; the original pose if none is outside every FOV."""
+    best, best_v = None, -1.0
+    for _ in range(n_cand):
+        cand, _, _ = _sample_avatar_pose(rng, 8.0)
+        others = [u for u in range(len(poses)) if u != aid]
+        if any(_fov_overlap(poses[u][0], poses[u][1], cand, poses[u][2]) > 0 for u in others) or                 any(np.linalg.norm(cand - poses[u][0]) < min_d for u in others):
+            continue
+        val = sum(1.0 / (np.linalg.norm(cand - poses[u][0]) + 1e-3) for u in others)
+        if val > best_v:
+            best, best_v = cand, val
+    return poses[aid] if best is None else (best, poses[aid][1], poses[aid][2])
+
+
 def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True):
     """Returns tensors dict; `gain` overrides v['gain'] (used by calibration)."""
     agg, dose, spike_p, moving = v.get("agg", "sum"), v.get("dose"), v.get("spike_p", 0.0), v.get("moving", False)
@@ -78,6 +93,9 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
             is_atk = rng.random() < 0.5
             aid = int(rng.integers(0, N)) if is_atk else -1
             ach = str(rng.choice(PEER_NAMES)) if is_atk else ""
+            if v.get("oov") and is_atk:     # Stage 5: out-of-view spatial-audio attacker
+                ach = PEER_NAMES[4]
+                poses[aid] = _oov_pose(np.random.default_rng([seed0 + cid, tk, 7]), poses, aid, min_d=v.get("oov_min_d", 0.0))
             pdf = [_peer_state_param(rng, T, u == aid, ach if u == aid else "", params) for u in range(N)]
             PC = np.stack([p[PEER_NAMES].values.astype(np.float32) for p in pdf])     # (N,T,5)
             if spike_p > 0:

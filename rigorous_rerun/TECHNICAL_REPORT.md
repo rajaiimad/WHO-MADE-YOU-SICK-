@@ -503,3 +503,30 @@ Lock-box PR-AUC [95% cohort-bootstrap CI]:
 * Primary question: yes. On the attacker target, the MPNN exceeds the GAT by +0.091 [+0.057, +0.126], the edge HGB by +0.100 [+0.061, +0.144], the rule by +0.346 and the prototype by +0.452.
 * Secondary question: no. Training on the attacker label does not help on the attacker target for any model (MPNN −0.002 [−0.024, +0.027]). It costs the MPNN on the unsafe target (−0.128 [−0.175, −0.088]).
 * The MPNN's lead over the GAT and the edge HGB is smaller on the attacker target (about 0.09–0.10) than on the unsafe target (about 0.21–0.25).
+
+## 14. Stage 5: stronger adaptive attackers (PREREGISTRATION_v6 + amendment)
+Code: `stage5.py`; the out-of-view hook is in `stage3.generate`. Results: `outputs_v2/stage5/summary.json`, log `outputs_v2/logs/stage5.log`.
+
+Setup:
+* 60 test cohorts (seeds 70000–70059); every attack uses the same seeds.
+* Detectors are trained on the v2 main corpus and never retrained.
+* Channel-only attacks are applied exactly to the standard corpus, under the same noise draw. Checks are asserted: the contribution formula reproduces the generator's attacker term (max error < 1e-7), and an identity modification leaves every label unchanged.
+* Amendment, recorded before scoring: the out-of-view attacker stood as close as 0.16 m to a victim. A variant restricted to ≥ 1 m was added.
+
+| attack | harm vs standard | MPNN PR (attacker) | MPNN recall @10% | MPNN recall @1% | realised FPR @10% |
+|---|---|---|---|---|---|
+| standard | 1.00 (687 frames) | 0.692 | 0.986 | 0.746 | 0.076 |
+| oov_audio | 10.03 | 0.901 | 0.988 | 0.849 | 0.145 |
+| oov_audio_d1 (amendment) | 6.12 | 0.789 | 0.996 | 0.859 | 0.167 |
+| switching | 1.20 | 0.710 | 0.985 | 0.746 | 0.079 |
+| split (two colluders) | 0.54 | 0.283 | 0.973 | 0.652 | 0.085 |
+| blackbox, queried seed | 0.93 | 0.660 | 0.937 | 0.626 | 0.060 |
+| blackbox, other seeds | 0.93 | 0.739 | 0.973 | 0.748 | 0.056 |
+
+Decision rule: met. MPNN recall @10% is ≥ 0.937 under every attack, so the robustness sentence stays. It is qualified in the paper:
+* Split attack: the MPNN's PR-AUC falls to 0.283 and its recall @1% to 0.652. The GAT's recall @10% falls to 0.634, and the prototype's to 0.001.
+* Black-box attack:
+  * It lowers the queried model's recall @1% to 0.626.
+  * On the 66 tracks with at least one expected attacker-induced frame, it reaches zero alarms on only one track.
+  * Harm and detectability are coupled by the generator.
+* Out-of-view attacker: its high recall comes with a realised false-alarm rate above the 10% budget (0.145–0.167).

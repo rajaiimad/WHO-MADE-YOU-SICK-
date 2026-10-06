@@ -1,0 +1,41 @@
+corpora ready (10s)
+mpnn trained (76s)
+blackbox built (85s)
+rule__RULE trained (86s)
+proto__MLPpub trained (105s)
+edgefeat__HGB trained (121s)
+gat__GAT trained (210s)
+harm {'standard': (687, 1.0), 'oov_audio': (6890, 10.029), 'oov_audio_d1': (4205, 6.121), 'switching': (827, 1.204), 'split': (372, 0.541), 'blackbox': (636, 0.926)}
+mpnn__MPNN       standard               PRatk 0.692 PRuns 0.651 rec@10 0.986 rec@1 0.746 fpr@10 0.076
+mpnn__MPNN       oov_audio              PRatk 0.901 PRuns 0.896 rec@10 0.988 rec@1 0.849 fpr@10 0.145
+mpnn__MPNN       oov_audio_d1           PRatk 0.789 PRuns 0.786 rec@10 0.996 rec@1 0.859 fpr@10 0.167
+mpnn__MPNN       switching              PRatk 0.710 PRuns 0.677 rec@10 0.985 rec@1 0.746 fpr@10 0.079
+mpnn__MPNN       split                  PRatk 0.283 PRuns 0.527 rec@10 0.973 rec@1 0.652 fpr@10 0.085
+mpnn__MPNN       blackbox               PRatk 0.724 PRuns 0.700 rec@10 0.966 rec@1 0.724 fpr@10 0.057
+mpnn__MPNN       blackbox_queried_seed  PRatk 0.660 PRuns 0.654 rec@10 0.937 rec@1 0.626 fpr@10 0.060
+mpnn__MPNN       blackbox_other_seeds   PRatk 0.739 PRuns 0.712 rec@10 0.973 rec@1 0.748 fpr@10 0.056
+rule__RULE       standard               PRatk 0.340 PRuns 0.257 rec@10 0.980 rec@1 0.615 fpr@10 0.107
+rule__RULE       oov_audio              PRatk 0.953 PRuns 0.877 rec@10 0.993 rec@1 0.840 fpr@10 0.100
+rule__RULE       oov_audio_d1           PRatk 0.867 PRuns 0.813 rec@10 0.997 rec@1 0.798 fpr@10 0.125
+rule__RULE       switching              PRatk 0.382 PRuns 0.300 rec@10 0.979 rec@1 0.666 fpr@10 0.105
+rule__RULE       split                  PRatk 0.205 PRuns 0.175 rec@10 0.970 rec@1 0.467 fpr@10 0.104
+rule__RULE       blackbox               PRatk 0.411 PRuns 0.302 rec@10 0.964 rec@1 0.715 fpr@10 0.109
+proto__MLPpub    standard               PRatk 0.162 PRuns 0.130 rec@10 0.767 rec@1 0.341 fpr@10 0.102
+proto__MLPpub    oov_audio              PRatk 0.682 PRuns 0.642 rec@10 0.821 rec@1 0.483 fpr@10 0.092
+proto__MLPpub    oov_audio_d1           PRatk 0.644 PRuns 0.613 rec@10 0.938 rec@1 0.591 fpr@10 0.107
+proto__MLPpub    switching              PRatk 0.231 PRuns 0.190 rec@10 0.800 rec@1 0.404 fpr@10 0.100
+proto__MLPpub    split                  PRatk 0.002 PRuns 0.012 rec@10 0.001 rec@1 0.000 fpr@10 0.034
+proto__MLPpub    blackbox               PRatk 0.169 PRuns 0.131 rec@10 0.779 rec@1 0.495 fpr@10 0.107
+edgefeat__HGB    standard               PRatk 0.558 PRuns 0.425 rec@10 0.973 rec@1 0.822 fpr@10 0.118
+edgefeat__HGB    oov_audio              PRatk 0.810 PRuns 0.756 rec@10 0.995 rec@1 0.929 fpr@10 0.146
+edgefeat__HGB    oov_audio_d1           PRatk 0.633 PRuns 0.600 rec@10 0.994 rec@1 0.911 fpr@10 0.167
+edgefeat__HGB    switching              PRatk 0.590 PRuns 0.468 rec@10 0.977 rec@1 0.825 fpr@10 0.121
+edgefeat__HGB    split                  PRatk 0.324 PRuns 0.329 rec@10 0.948 rec@1 0.699 fpr@10 0.119
+edgefeat__HGB    blackbox               PRatk 0.605 PRuns 0.449 rec@10 0.969 rec@1 0.880 fpr@10 0.103
+gat__GAT         standard               PRatk 0.557 PRuns 0.457 rec@10 0.943 rec@1 0.731 fpr@10 0.088
+gat__GAT         oov_audio              PRatk 0.797 PRuns 0.770 rec@10 0.927 rec@1 0.705 fpr@10 0.136
+gat__GAT         oov_audio_d1           PRatk 0.720 PRuns 0.697 rec@10 0.979 rec@1 0.792 fpr@10 0.158
+gat__GAT         switching              PRatk 0.587 PRuns 0.498 rec@10 0.939 rec@1 0.729 fpr@10 0.091
+gat__GAT         split                  PRatk 0.057 PRuns 0.151 rec@10 0.634 rec@1 0.153 fpr@10 0.108
+gat__GAT         blackbox               PRatk 0.630 PRuns 0.513 rec@10 0.922 rec@1 0.753 fpr@10 0.076
+done 214s
