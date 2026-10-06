@@ -1,0 +1,9 @@
+{
+  "peer_gain": 4.005579710006109,
+  "target_expected_prevalence": 0.0138,
+  "calibration_seeds": [
+    10000,
+    10060
+  ],
+  "method": "label-free expected prevalence on backbone-calibration seeds"
+}

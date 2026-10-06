@@ -1,0 +1,109 @@
+{
+  "cpu": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "python": "3.13.0",
+  "torch": "2.11.0+cu128",
+  "threads": 1,
+  "runs": 500,
+  "by_size": {
+    "2": {
+      "proto__MLPpub": {
+        "ms_per_cohort_frame_median": 0.4164999700151384,
+        "ms_per_cohort_frame_p95": 0.6234299740754067,
+        "ms_per_victim_median": 0.2082499850075692,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "proto__HGB": {
+        "ms_per_cohort_frame_median": 3.379749949090183,
+        "ms_per_cohort_frame_p95": 6.528440001420677,
+        "ms_per_victim_median": 1.6898749745450914,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "mpnn__MPNN": {
+        "ms_per_cohort_frame_median": 0.3197999903932214,
+        "ms_per_cohort_frame_p95": 0.8484749414492397,
+        "ms_per_victim_median": 0.1598999951966107,
+        "meets_60Hz_budget_16.7ms_p95": true
+      }
+    },
+    "3": {
+      "proto__MLPpub": {
+        "ms_per_cohort_frame_median": 0.38175005465745926,
+        "ms_per_cohort_frame_p95": 0.6161100347526371,
+        "ms_per_victim_median": 0.12725001821915308,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "proto__HGB": {
+        "ms_per_cohort_frame_median": 3.4863000037148595,
+        "ms_per_cohort_frame_p95": 6.613355060108006,
+        "ms_per_victim_median": 1.1621000012382865,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "mpnn__MPNN": {
+        "ms_per_cohort_frame_median": 0.32394996378570795,
+        "ms_per_cohort_frame_p95": 0.4971349495463072,
+        "ms_per_victim_median": 0.10798332126190265,
+        "meets_60Hz_budget_16.7ms_p95": true
+      }
+    },
+    "4": {
+      "proto__MLPpub": {
+        "ms_per_cohort_frame_median": 0.4637000383809209,
+        "ms_per_cohort_frame_p95": 0.7495500030927358,
+        "ms_per_victim_median": 0.11592500959523022,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "proto__HGB": {
+        "ms_per_cohort_frame_median": 3.495300014037639,
+        "ms_per_cohort_frame_p95": 6.448630080558359,
+        "ms_per_victim_median": 0.8738250035094097,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "mpnn__MPNN": {
+        "ms_per_cohort_frame_median": 0.32094999914988875,
+        "ms_per_cohort_frame_p95": 0.45610498054884374,
+        "ms_per_victim_median": 0.08023749978747219,
+        "meets_60Hz_budget_16.7ms_p95": true
+      }
+    },
+    "6": {
+      "proto__MLPpub": {
+        "ms_per_cohort_frame_median": 0.4525500116869807,
+        "ms_per_cohort_frame_p95": 1.1104249570053064,
+        "ms_per_victim_median": 0.07542500194783013,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "proto__HGB": {
+        "ms_per_cohort_frame_median": 3.4423000179231167,
+        "ms_per_cohort_frame_p95": 6.082990037975826,
+        "ms_per_victim_median": 0.5737166696538528,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "mpnn__MPNN": {
+        "ms_per_cohort_frame_median": 0.34485000651329756,
+        "ms_per_cohort_frame_p95": 0.5433999467641112,
+        "ms_per_victim_median": 0.05747500108554959,
+        "meets_60Hz_budget_16.7ms_p95": true
+      }
+    },
+    "8": {
+      "proto__MLPpub": {
+        "ms_per_cohort_frame_median": 0.6349500035867095,
+        "ms_per_cohort_frame_p95": 1.010325009701773,
+        "ms_per_victim_median": 0.07936875044833869,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "proto__HGB": {
+        "ms_per_cohort_frame_median": 4.23000002047047,
+        "ms_per_cohort_frame_p95": 7.947329978924245,
+        "ms_per_victim_median": 0.5287500025588088,
+        "meets_60Hz_budget_16.7ms_p95": true
+      },
+      "mpnn__MPNN": {
+        "ms_per_cohort_frame_median": 0.3245000261813402,
+        "ms_per_cohort_frame_p95": 0.5336149886716156,
+        "ms_per_victim_median": 0.04056250327266753,
+        "meets_60Hz_budget_16.7ms_p95": true
+      }
+    }
+  }
+}

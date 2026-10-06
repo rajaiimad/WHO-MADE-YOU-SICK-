@@ -1,0 +1,154 @@
+{
+  "n_victim_frames": 17232,
+  "n_cohorts": 107,
+  "by_seed": [
+    {
+      "seed": 0,
+      "attribution_top1": 0.992455896007428,
+      "mpnn__MPNN|true": 0.10907786339521408,
+      "mpnn__MPNN|predicted": 0.10907194763422012,
+      "mpnn__MPNN|random_nonsource": -0.013553766533732414,
+      "mpnn__MPNN|wrong_top_nonsource": -0.014220628887414932,
+      "proto__MLPpub|true": 0.08752722293138504,
+      "proto__MLPpub|predicted": 0.0875256359577179,
+      "proto__MLPpub|random_nonsource": 0.005682767368853092,
+      "proto__MLPpub|wrong_top_nonsource": 0.005417080596089363,
+      "ORACLE|true": 0.12132991755778874,
+      "ORACLE|predicted": 0.12132066139580402,
+      "ORACLE|random_nonsource": -0.009469377205282157,
+      "ORACLE|wrong_top_nonsource": -0.01189166709531315
+    },
+    {
+      "seed": 1,
+      "attribution_top1": 0.9935004642525533,
+      "mpnn__MPNN|true": 0.06014898419380188,
+      "mpnn__MPNN|predicted": 0.060143403708934784,
+      "mpnn__MPNN|random_nonsource": -0.0006370870978571475,
+      "mpnn__MPNN|wrong_top_nonsource": -0.0005719433538615704,
+      "proto__MLPpub|true": 0.08662509173154831,
+      "proto__MLPpub|predicted": 0.08658893406391144,
+      "proto__MLPpub|random_nonsource": -0.011424925178289413,
+      "proto__MLPpub|wrong_top_nonsource": -0.012070062570273876,
+      "ORACLE|true": 0.12132991755778874,
+      "ORACLE|predicted": 0.12132666247709208,
+      "ORACLE|random_nonsource": -0.009134155072646215,
+      "ORACLE|wrong_top_nonsource": -0.0119438630484467
+    },
+    {
+      "seed": 2,
+      "attribution_top1": 0.9910631383472609,
+      "mpnn__MPNN|true": 0.07169442623853683,
+      "mpnn__MPNN|predicted": 0.07164166122674942,
+      "mpnn__MPNN|random_nonsource": -0.013641857542097569,
+      "mpnn__MPNN|wrong_top_nonsource": -0.014640114270150661,
+      "proto__MLPpub|true": 0.11402126401662827,
+      "proto__MLPpub|predicted": 0.11401720345020294,
+      "proto__MLPpub|random_nonsource": -0.021084271371364594,
+      "proto__MLPpub|wrong_top_nonsource": -0.021990207955241203,
+      "ORACLE|true": 0.12132991755778874,
+      "ORACLE|predicted": 0.12131742803796068,
+      "ORACLE|random_nonsource": -0.00909472230913489,
+      "ORACLE|wrong_top_nonsource": -0.01222921244003423
+    },
+    {
+      "seed": 42,
+      "attribution_top1": 0.9874651810584958,
+      "mpnn__MPNN|true": 0.12857678532600403,
+      "mpnn__MPNN|predicted": 0.12716849148273468,
+      "mpnn__MPNN|random_nonsource": -0.011074934154748917,
+      "mpnn__MPNN|wrong_top_nonsource": -0.014820655807852745,
+      "proto__MLPpub|true": 0.07356138527393341,
+      "proto__MLPpub|predicted": 0.07234988361597061,
+      "proto__MLPpub|random_nonsource": 0.002718013944104314,
+      "proto__MLPpub|wrong_top_nonsource": 0.0026543643325567245,
+      "ORACLE|true": 0.12132991755778874,
+      "ORACLE|predicted": 0.12132115289010457,
+      "ORACLE|random_nonsource": -0.009141213345586882,
+      "ORACLE|wrong_top_nonsource": -0.01214120719608689
+    },
+    {
+      "seed": 2024,
+      "attribution_top1": 0.9832288765088208,
+      "mpnn__MPNN|true": 0.11855927854776382,
+      "mpnn__MPNN|predicted": 0.11668814718723297,
+      "mpnn__MPNN|random_nonsource": -0.023839108645915985,
+      "mpnn__MPNN|wrong_top_nonsource": -0.024732956662774086,
+      "proto__MLPpub|true": 0.11163721233606339,
+      "proto__MLPpub|predicted": 0.1091628298163414,
+      "proto__MLPpub|random_nonsource": -0.00369191518984735,
+      "proto__MLPpub|wrong_top_nonsource": -0.004164315294474363,
+      "ORACLE|true": 0.12132991755778874,
+      "ORACLE|predicted": 0.12131101537306901,
+      "ORACLE|random_nonsource": -0.009423401913520722,
+      "ORACLE|wrong_top_nonsource": -0.01185339427056217
+    }
+  ],
+  "summary": {
+    "mpnn__MPNN": {
+      "mean_dP_true": 0.09761146456003189,
+      "mean_dP_predicted": 0.0969427302479744,
+      "mean_dP_random_nonsource": -0.012549352832138538,
+      "mean_dP_wrong_top_nonsource": -0.013797260820865631,
+      "paired_pred_minus_random": {
+        "mean": 0.10949208587408066,
+        "ci95_cohort_boot": [
+          0.09045916795730591,
+          0.127228781580925
+        ],
+        "cohens_dz": 0.5052341222763062
+      },
+      "corr_with_oracle_dP_true": 0.9285326117391925,
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.003992285579442978,
+        "teleport_rate": -0.005433463957160711,
+        "particle_intensity": -0.01142673660069704,
+        "shader_flicker_hz": 0.0024515576660633087,
+        "spatial_audio_jit": 0.13667377829551697
+      }
+    },
+    "proto__MLPpub": {
+      "mean_dP_true": 0.09467443078756332,
+      "mean_dP_predicted": 0.09392890334129333,
+      "mean_dP_random_nonsource": -0.00556006608530879,
+      "mean_dP_wrong_top_nonsource": -0.006030627992004156,
+      "paired_pred_minus_random": {
+        "mean": 0.09948896616697311,
+        "ci95_cohort_boot": [
+          0.0887388363480568,
+          0.1090528815984726
+        ],
+        "cohens_dz": 0.6834973692893982
+      },
+      "corr_with_oracle_dP_true": 0.7016898490038738,
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.0004286743060220033,
+        "teleport_rate": -0.0005028632585890591,
+        "particle_intensity": -0.0004383403866086155,
+        "shader_flicker_hz": 0.005066448822617531,
+        "spatial_audio_jit": 0.13183800876140594
+      }
+    },
+    "ORACLE": {
+      "mean_dP_true": 0.12132991755778874,
+      "mean_dP_predicted": 0.12131938403480609,
+      "mean_dP_random_nonsource": -0.009252573969234174,
+      "mean_dP_wrong_top_nonsource": -0.01201186881008863,
+      "paired_pred_minus_random": {
+        "mean": 0.13057195800404028,
+        "ci95_cohort_boot": [
+          0.1072027446477739,
+          0.15246724501201445
+        ],
+        "cohens_dz": 0.4592875943220046
+      },
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.0041724644216125035,
+        "teleport_rate": 0.001782232842020553,
+        "particle_intensity": -0.0025326323007617557,
+        "shader_flicker_hz": 0.009590043401641967,
+        "spatial_audio_jit": 0.16800008514555206
+      }
+    }
+  },
+  "attribution_top1_mean": 0.9895427112349117
+}

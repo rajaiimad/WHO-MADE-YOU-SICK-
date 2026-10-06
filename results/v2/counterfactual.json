@@ -1,0 +1,154 @@
+{
+  "n_victim_frames": 24336,
+  "n_cohorts": 113,
+  "by_seed": [
+    {
+      "seed": 0,
+      "attribution_top1": 0.9911653517422748,
+      "mpnn__MPNN|true": 0.061301328241825104,
+      "mpnn__MPNN|predicted": 0.06128210574388504,
+      "mpnn__MPNN|random_nonsource": -0.006701083853840828,
+      "mpnn__MPNN|wrong_top_nonsource": -0.012958590872585773,
+      "proto__MLPpub|true": 0.044044770300388336,
+      "proto__MLPpub|predicted": 0.043955981731414795,
+      "proto__MLPpub|random_nonsource": 0.006153485272079706,
+      "proto__MLPpub|wrong_top_nonsource": 0.005972287151962519,
+      "ORACLE|true": 0.057238356369376825,
+      "ORACLE|predicted": 0.0572190325762649,
+      "ORACLE|random_nonsource": -0.01806796290195749,
+      "ORACLE|wrong_top_nonsource": -0.026306430944128024
+    },
+    {
+      "seed": 1,
+      "attribution_top1": 0.98767258382643,
+      "mpnn__MPNN|true": 0.06082504615187645,
+      "mpnn__MPNN|predicted": 0.06065593287348747,
+      "mpnn__MPNN|random_nonsource": -0.01039841491729021,
+      "mpnn__MPNN|wrong_top_nonsource": -0.016749389469623566,
+      "proto__MLPpub|true": 0.044809505343437195,
+      "proto__MLPpub|predicted": 0.04457934945821762,
+      "proto__MLPpub|random_nonsource": 0.010457707569003105,
+      "proto__MLPpub|wrong_top_nonsource": 0.010268752463161945,
+      "ORACLE|true": 0.057238356369376825,
+      "ORACLE|predicted": 0.057029571396254475,
+      "ORACLE|random_nonsource": -0.017997738984660793,
+      "ORACLE|wrong_top_nonsource": -0.02631674371712785
+    },
+    {
+      "seed": 2,
+      "attribution_top1": 0.9884533201840894,
+      "mpnn__MPNN|true": 0.063126340508461,
+      "mpnn__MPNN|predicted": 0.0630173459649086,
+      "mpnn__MPNN|random_nonsource": -0.009633956477046013,
+      "mpnn__MPNN|wrong_top_nonsource": -0.017716798931360245,
+      "proto__MLPpub|true": 0.041834548115730286,
+      "proto__MLPpub|predicted": 0.04157822206616402,
+      "proto__MLPpub|random_nonsource": 0.007931360974907875,
+      "proto__MLPpub|wrong_top_nonsource": 0.007843704894185066,
+      "ORACLE|true": 0.057238356369376825,
+      "ORACLE|predicted": 0.057198450527844044,
+      "ORACLE|random_nonsource": -0.017936722376682288,
+      "ORACLE|wrong_top_nonsource": -0.02662124966942506
+    },
+    {
+      "seed": 42,
+      "attribution_top1": 0.9928090072320842,
+      "mpnn__MPNN|true": 0.061419203877449036,
+      "mpnn__MPNN|predicted": 0.061429157853126526,
+      "mpnn__MPNN|random_nonsource": -0.012560311704874039,
+      "mpnn__MPNN|wrong_top_nonsource": -0.019987156614661217,
+      "proto__MLPpub|true": 0.03655601292848587,
+      "proto__MLPpub|predicted": 0.03655257448554039,
+      "proto__MLPpub|random_nonsource": 0.0057788812555372715,
+      "proto__MLPpub|wrong_top_nonsource": 0.005617729853838682,
+      "ORACLE|true": 0.057238356369376825,
+      "ORACLE|predicted": 0.057259021693305254,
+      "ORACLE|random_nonsource": -0.017604977594054293,
+      "ORACLE|wrong_top_nonsource": -0.026264447092769774
+    },
+    {
+      "seed": 2024,
+      "attribution_top1": 0.990302432610125,
+      "mpnn__MPNN|true": 0.06418559700250626,
+      "mpnn__MPNN|predicted": 0.06411737948656082,
+      "mpnn__MPNN|random_nonsource": -0.010288671590387821,
+      "mpnn__MPNN|wrong_top_nonsource": -0.017015328630805016,
+      "proto__MLPpub|true": 0.04562542587518692,
+      "proto__MLPpub|predicted": 0.045404549688100815,
+      "proto__MLPpub|random_nonsource": 0.009929195046424866,
+      "proto__MLPpub|wrong_top_nonsource": 0.00982268713414669,
+      "ORACLE|true": 0.057238356369376825,
+      "ORACLE|predicted": 0.05721587418816885,
+      "ORACLE|random_nonsource": -0.017256324684425974,
+      "ORACLE|wrong_top_nonsource": -0.026299731451888044
+    }
+  ],
+  "summary": {
+    "mpnn__MPNN": {
+      "mean_dP_true": 0.06217150017619133,
+      "mean_dP_predicted": 0.062100380659103394,
+      "mean_dP_random_nonsource": -0.009916488081216812,
+      "mean_dP_wrong_top_nonsource": -0.016885453835129738,
+      "paired_pred_minus_random": {
+        "mean": 0.0720168724656105,
+        "ci95_cohort_boot": [
+          0.0602288544178009,
+          0.08574230223894119
+        ],
+        "cohens_dz": 0.4002183973789215
+      },
+      "corr_with_oracle_dP_true": 0.8804054364406756,
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.1828550547361374,
+        "teleport_rate": 0.06910157948732376,
+        "particle_intensity": 0.03797308728098869,
+        "shader_flicker_hz": 0.06393980979919434,
+        "spatial_audio_jit": 0.039601974189281464
+      }
+    },
+    "proto__MLPpub": {
+      "mean_dP_true": 0.04257405176758766,
+      "mean_dP_predicted": 0.04241413623094559,
+      "mean_dP_random_nonsource": 0.008050126023590565,
+      "mean_dP_wrong_top_nonsource": 0.007905032485723495,
+      "paired_pred_minus_random": {
+        "mean": 0.0343640111386776,
+        "ci95_cohort_boot": [
+          0.02886309288442135,
+          0.04071544110774994
+        ],
+        "cohens_dz": 0.3359202444553375
+      },
+      "corr_with_oracle_dP_true": 0.4786004376006195,
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.11950118094682693,
+        "teleport_rate": 0.025326158851385117,
+        "particle_intensity": 0.04372275993227959,
+        "shader_flicker_hz": 0.0197894349694252,
+        "spatial_audio_jit": 0.0337984524667263
+      }
+    },
+    "ORACLE": {
+      "mean_dP_true": 0.057238356369376825,
+      "mean_dP_predicted": 0.057184390076367504,
+      "mean_dP_random_nonsource": -0.01777274530835617,
+      "mean_dP_wrong_top_nonsource": -0.026361720575067756,
+      "paired_pred_minus_random": {
+        "mean": 0.07495713538472366,
+        "ci95_cohort_boot": [
+          0.06269139267229769,
+          0.08914403351897236
+        ],
+        "cohens_dz": 0.3911522713553339
+      },
+      "mean_dP_true_by_channel": {
+        "avatar_ang_vel": 0.1675589590767731,
+        "teleport_rate": 0.07169618844679786,
+        "particle_intensity": 0.02498448131750006,
+        "shader_flicker_hz": 0.06362890617094111,
+        "spatial_audio_jit": 0.036184223659635514
+      }
+    }
+  },
+  "attribution_top1_mean": 0.9900805391190006
+}

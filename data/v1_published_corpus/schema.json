@@ -1,0 +1,89 @@
+{
+  "user_channels": [
+    "speed",
+    "accel",
+    "yaw_rate",
+    "pitch_rate",
+    "roll_rate",
+    "optic_flow",
+    "fov_deg",
+    "frame_interval_ms",
+    "jitter_ms",
+    "latency_ms",
+    "gaze_x",
+    "gaze_y",
+    "gaze_pupil",
+    "head_x",
+    "head_y",
+    "head_z",
+    "context_loco",
+    "context_scene",
+    "context_task",
+    "context_hmd"
+  ],
+  "peer_channels": [
+    "avatar_ang_vel",
+    "teleport_rate",
+    "particle_intensity",
+    "shader_flicker_hz",
+    "spatial_audio_jit"
+  ],
+  "peer_units": {
+    "avatar_ang_vel": "deg/s",
+    "teleport_rate": "1/s",
+    "particle_intensity": "0-1",
+    "shader_flicker_hz": "Hz",
+    "spatial_audio_jit": "ms"
+  },
+  "peer_bounds": {
+    "avatar_ang_vel": [
+      0.0,
+      720.0
+    ],
+    "teleport_rate": [
+      0.0,
+      5.0
+    ],
+    "particle_intensity": [
+      0.0,
+      1.0
+    ],
+    "shader_flicker_hz": [
+      0.0,
+      30.0
+    ],
+    "spatial_audio_jit": [
+      0.0,
+      100.0
+    ]
+  },
+  "peer_benign_bounds": {
+    "avatar_ang_vel": [
+      0.0,
+      60.0
+    ],
+    "teleport_rate": [
+      0.0,
+      0.5
+    ],
+    "particle_intensity": [
+      0.0,
+      0.2
+    ],
+    "shader_flicker_hz": [
+      0.0,
+      1.0
+    ],
+    "spatial_audio_jit": [
+      0.0,
+      5.0
+    ]
+  },
+  "severity_classes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "attributed_peer": "int, -1 means no attacker"
+}

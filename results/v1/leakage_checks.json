@@ -1,0 +1,403 @@
+{
+  "main_corpus_reproducible": {
+    "pass": true,
+    "max_abs_diff": 1.4210854715202004e-14
+  },
+  "corpus_seed_ranges_disjoint": {
+    "pass": true,
+    "ranges": {
+      "main": [
+        42,
+        102
+      ],
+      "backbone_calib": [
+        10000,
+        10060
+      ],
+      "lockbox": [
+        20000,
+        20120
+      ],
+      "size_N2": [
+        30000,
+        30060
+      ],
+      "size_N3": [
+        31000,
+        31060
+      ],
+      "size_N6": [
+        32000,
+        32060
+      ],
+      "size_N8": [
+        33000,
+        33060
+      ],
+      "shift_same": [
+        40000,
+        40040
+      ],
+      "shift_coeff": [
+        41000,
+        41040
+      ],
+      "shift_thresh": [
+        42000,
+        42040
+      ],
+      "shift_pulse": [
+        43000,
+        43040
+      ],
+      "shift_intensity": [
+        44000,
+        44040
+      ],
+      "shift_decouple": [
+        45000,
+        45040
+      ],
+      "adapt_a1.0": [
+        50000,
+        50040
+      ],
+      "adapt_a0.8": [
+        51000,
+        51040
+      ],
+      "adapt_a0.6": [
+        52000,
+        52040
+      ],
+      "adapt_a0.4": [
+        53000,
+        53040
+      ],
+      "adapt_a0.2": [
+        54000,
+        54040
+      ]
+    }
+  },
+  "backbone_calib_disjoint_from_main": {
+    "pass": true,
+    "shared_rows": 0
+  },
+  "cohort_disjoint_nested_splits": {
+    "pass": true,
+    "folds": [
+      {
+        "seed": 0,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 942,
+        "pos_va": 121,
+        "pos_te": 209
+      },
+      {
+        "seed": 0,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 826,
+        "pos_va": 182,
+        "pos_te": 264
+      },
+      {
+        "seed": 0,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 745,
+        "pos_va": 355,
+        "pos_te": 172
+      },
+      {
+        "seed": 0,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 531,
+        "pos_va": 391,
+        "pos_te": 350
+      },
+      {
+        "seed": 0,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 889,
+        "pos_va": 106,
+        "pos_te": 277
+      },
+      {
+        "seed": 1,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 527,
+        "pos_va": 392,
+        "pos_te": 353
+      },
+      {
+        "seed": 1,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 686,
+        "pos_va": 298,
+        "pos_te": 288
+      },
+      {
+        "seed": 1,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 747,
+        "pos_va": 177,
+        "pos_te": 348
+      },
+      {
+        "seed": 1,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 895,
+        "pos_va": 234,
+        "pos_te": 143
+      },
+      {
+        "seed": 1,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 982,
+        "pos_va": 150,
+        "pos_te": 140
+      },
+      {
+        "seed": 2,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 657,
+        "pos_va": 360,
+        "pos_te": 255
+      },
+      {
+        "seed": 2,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 827,
+        "pos_va": 188,
+        "pos_te": 257
+      },
+      {
+        "seed": 2,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 614,
+        "pos_va": 237,
+        "pos_te": 421
+      },
+      {
+        "seed": 2,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 862,
+        "pos_va": 265,
+        "pos_te": 145
+      },
+      {
+        "seed": 2,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 875,
+        "pos_va": 203,
+        "pos_te": 194
+      },
+      {
+        "seed": 42,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 836,
+        "pos_va": 212,
+        "pos_te": 224
+      },
+      {
+        "seed": 42,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 891,
+        "pos_va": 158,
+        "pos_te": 223
+      },
+      {
+        "seed": 42,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 907,
+        "pos_va": 199,
+        "pos_te": 166
+      },
+      {
+        "seed": 42,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 668,
+        "pos_va": 307,
+        "pos_te": 297
+      },
+      {
+        "seed": 42,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 840,
+        "pos_va": 70,
+        "pos_te": 362
+      },
+      {
+        "seed": 2024,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 805,
+        "pos_va": 226,
+        "pos_te": 241
+      },
+      {
+        "seed": 2024,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 523,
+        "pos_va": 302,
+        "pos_te": 447
+      },
+      {
+        "seed": 2024,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 690,
+        "pos_va": 400,
+        "pos_te": 182
+      },
+      {
+        "seed": 2024,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 808,
+        "pos_va": 220,
+        "pos_te": 244
+      },
+      {
+        "seed": 2024,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 921,
+        "pos_va": 193,
+        "pos_te": 158
+      }
+    ]
+  },
+  "no_duplicate_rows_across_cohorts[prototype_features]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "no_duplicate_rows_across_cohorts[raw_telemetry]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "no_duplicate_rows_across_cohorts[edge_tensor]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "features_are_causal_(future_perturbation_invariant)": {
+    "pass": true,
+    "max_change_past": 0.0,
+    "max_change_future": 272.0413818359375
+  },
+  "no_single_feature_encodes_label": {
+    "pass": true,
+    "top5_single_feature_auc": [
+      [
+        0.9487533277531707,
+        "proto[14]"
+      ],
+      [
+        0.9386831333705898,
+        "proto[19]"
+      ],
+      [
+        0.7346147207095441,
+        "raw[5]"
+      ],
+      [
+        0.7313125493384904,
+        "raw[0]"
+      ],
+      [
+        0.7177043466379798,
+        "proto[6]"
+      ]
+    ]
+  },
+  "fit_and_val_predictions_independent_of_test_data": {
+    "pass": true,
+    "max_val_pred_change": {
+      "proto__LR": 0.0,
+      "proto__HGB": 0.0,
+      "mpnn__MPNN": 0.0
+    }
+  },
+  "labels_not_in_feature_tensors": {
+    "pass": true,
+    "note": "feature tensors are built from USER_CH telemetry, peer channels, backbone outputs and pose geometry only; 'severity'/'attributed_peer'/'attacker_id'/'attack_channel' are read into separate label arrays (common.build_tensors)"
+  },
+  "old_pipeline_issue_decouple_corpus_overlap": {
+    "finding": "old shift corpus 'decouple' (GenParams seed=100) regenerates main cohorts 58 and 59 (seed 42+58, 42+59): user telemetry max abs diff vs main = 4.00e+01",
+    "status": "fixed here: all new corpora use disjoint seed ranges"
+  },
+  "generator_note_accel_central_difference": {
+    "finding": "xrperil_multi._sim_user_track computes accel with np.gradient (central difference), so accel[t] depends on speed[t+1]. The label at t depends only on speed[t] (via optic_flow), yaw_rate[t] and latency[t], so this does not carry label information, but it is a non-causal telemetry channel; see ablation victim_all_no_accel in analyze_detection."
+  }
+}

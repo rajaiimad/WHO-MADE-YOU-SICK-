@@ -1,0 +1,396 @@
+{
+  "main_corpus_reproducible": {
+    "pass": true,
+    "max_abs_diff": 0.0
+  },
+  "corpus_seed_ranges_disjoint": {
+    "pass": true,
+    "ranges": {
+      "main": [
+        42,
+        102
+      ],
+      "backbone_calib": [
+        10000,
+        10060
+      ],
+      "lockbox": [
+        20000,
+        20120
+      ],
+      "size_N2": [
+        30000,
+        30060
+      ],
+      "size_N3": [
+        31000,
+        31060
+      ],
+      "size_N6": [
+        32000,
+        32060
+      ],
+      "size_N8": [
+        33000,
+        33060
+      ],
+      "shift_same": [
+        40000,
+        40040
+      ],
+      "shift_coeff": [
+        41000,
+        41040
+      ],
+      "shift_thresh": [
+        42000,
+        42040
+      ],
+      "shift_pulse": [
+        43000,
+        43040
+      ],
+      "shift_intensity": [
+        44000,
+        44040
+      ],
+      "shift_decouple": [
+        45000,
+        45040
+      ],
+      "adapt_a1.0": [
+        50000,
+        50040
+      ],
+      "adapt_a0.8": [
+        51000,
+        51040
+      ],
+      "adapt_a0.6": [
+        52000,
+        52040
+      ],
+      "adapt_a0.4": [
+        53000,
+        53040
+      ],
+      "adapt_a0.2": [
+        54000,
+        54040
+      ]
+    }
+  },
+  "backbone_calib_disjoint_from_main": {
+    "pass": true,
+    "shared_rows": 0
+  },
+  "cohort_disjoint_nested_splits": {
+    "pass": true,
+    "folds": [
+      {
+        "seed": 0,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 1008,
+        "pos_va": 210,
+        "pos_te": 321
+      },
+      {
+        "seed": 0,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 961,
+        "pos_va": 249,
+        "pos_te": 329
+      },
+      {
+        "seed": 0,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 1020,
+        "pos_va": 257,
+        "pos_te": 262
+      },
+      {
+        "seed": 0,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 950,
+        "pos_va": 253,
+        "pos_te": 336
+      },
+      {
+        "seed": 0,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 970,
+        "pos_va": 278,
+        "pos_te": 291
+      },
+      {
+        "seed": 1,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 890,
+        "pos_va": 347,
+        "pos_te": 302
+      },
+      {
+        "seed": 1,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 981,
+        "pos_va": 222,
+        "pos_te": 336
+      },
+      {
+        "seed": 1,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 1090,
+        "pos_va": 193,
+        "pos_te": 256
+      },
+      {
+        "seed": 1,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 889,
+        "pos_va": 425,
+        "pos_te": 225
+      },
+      {
+        "seed": 1,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 807,
+        "pos_va": 312,
+        "pos_te": 420
+      },
+      {
+        "seed": 2,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 935,
+        "pos_va": 307,
+        "pos_te": 297
+      },
+      {
+        "seed": 2,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 836,
+        "pos_va": 411,
+        "pos_te": 292
+      },
+      {
+        "seed": 2,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 1028,
+        "pos_va": 194,
+        "pos_te": 317
+      },
+      {
+        "seed": 2,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 942,
+        "pos_va": 289,
+        "pos_te": 308
+      },
+      {
+        "seed": 2,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 880,
+        "pos_va": 334,
+        "pos_te": 325
+      },
+      {
+        "seed": 42,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 745,
+        "pos_va": 341,
+        "pos_te": 453
+      },
+      {
+        "seed": 42,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 876,
+        "pos_va": 302,
+        "pos_te": 361
+      },
+      {
+        "seed": 42,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 1019,
+        "pos_va": 278,
+        "pos_te": 242
+      },
+      {
+        "seed": 42,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 988,
+        "pos_va": 262,
+        "pos_te": 289
+      },
+      {
+        "seed": 42,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 919,
+        "pos_va": 426,
+        "pos_te": 194
+      },
+      {
+        "seed": 2024,
+        "fold": 0,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 798,
+        "pos_va": 281,
+        "pos_te": 460
+      },
+      {
+        "seed": 2024,
+        "fold": 1,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 915,
+        "pos_va": 312,
+        "pos_te": 312
+      },
+      {
+        "seed": 2024,
+        "fold": 2,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 976,
+        "pos_va": 380,
+        "pos_te": 183
+      },
+      {
+        "seed": 2024,
+        "fold": 3,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 939,
+        "pos_va": 381,
+        "pos_te": 219
+      },
+      {
+        "seed": 2024,
+        "fold": 4,
+        "n_tr": 36,
+        "n_va": 12,
+        "n_te": 12,
+        "pos_tr": 850,
+        "pos_va": 324,
+        "pos_te": 365
+      }
+    ]
+  },
+  "no_duplicate_rows_across_cohorts[prototype_features]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "no_duplicate_rows_across_cohorts[raw_telemetry]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "no_duplicate_rows_across_cohorts[edge_tensor]": {
+    "pass": true,
+    "hashes_in_multiple_cohorts": 0
+  },
+  "features_are_causal_(future_perturbation_invariant)": {
+    "pass": true,
+    "max_change_past": 0.0,
+    "max_change_future": 272.0413818359375
+  },
+  "no_single_feature_encodes_label": {
+    "pass": true,
+    "top5_single_feature_auc": [
+      [
+        0.7393465594222477,
+        "geo[3]"
+      ],
+      [
+        0.7354126894796276,
+        "geo[5]"
+      ],
+      [
+        0.7019305690454297,
+        "geo[1]"
+      ],
+      [
+        0.689261566851421,
+        "raw[0]"
+      ],
+      [
+        0.6874864711377568,
+        "raw[5]"
+      ]
+    ]
+  },
+  "fit_and_val_predictions_independent_of_test_data": {
+    "pass": true,
+    "max_val_pred_change": {
+      "proto__LR": 0.0,
+      "proto__HGB": 0.0,
+      "mpnn__MPNN": 0.0
+    }
+  },
+  "labels_not_in_feature_tensors": {
+    "pass": true,
+    "note": "feature tensors are built from USER_CH telemetry, peer channels, backbone outputs and pose geometry only; 'severity'/'attributed_peer'/'attacker_id'/'attack_channel' are read into separate label arrays (common.build_tensors)"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "avatar_ang_vel": {
+    "unsafe_frames": 761,
+    "unsafe_share": 0.277,
+    "proto__MLPpub": [
+      0.788,
+      0.221
+    ],
+    "proto__LR": [
+      0.708,
+      0.205
+    ],
+    "proto__HGB": [
+      0.787,
+      0.185
+    ],
+    "mpnn__MPNN": [
+      0.992,
+      0.77
+    ],
+    "ORACLE": [
+      0.996,
+      0.88
+    ]
+  },
+  "teleport_rate": {
+    "unsafe_frames": 356,
+    "unsafe_share": 0.129,
+    "proto__MLPpub": [
+      0.741,
+      0.083
+    ],
+    "proto__LR": [
+      0.612,
+      0.093
+    ],
+    "proto__HGB": [
+      0.721,
+      0.066
+    ],
+    "mpnn__MPNN": [
+      0.988,
+      0.673
+    ],
+    "ORACLE": [
+      0.994,
+      0.834
+    ]
+  },
+  "particle_intensity": {
+    "unsafe_frames": 151,
+    "unsafe_share": 0.055,
+    "proto__MLPpub": [
+      0.653,
+      0.017
+    ],
+    "proto__LR": [
+      0.492,
+      0.016
+    ],
+    "proto__HGB": [
+      0.655,
+      0.018
+    ],
+    "mpnn__MPNN": [
+      0.986,
+      0.496
+    ],
+    "ORACLE": [
+      0.993,
+      0.785
+    ]
+  },
+  "shader_flicker_hz": {
+    "unsafe_frames": 340,
+    "unsafe_share": 0.124,
+    "proto__MLPpub": [
+      0.74,
+      0.072
+    ],
+    "proto__LR": [
+      0.611,
+      0.084
+    ],
+    "proto__HGB": [
+      0.721,
+      0.059
+    ],
+    "mpnn__MPNN": [
+      0.99,
+      0.686
+    ],
+    "ORACLE": [
+      0.995,
+      0.844
+    ]
+  },
+  "spatial_audio_jit": {
+    "unsafe_frames": 592,
+    "unsafe_share": 0.215,
+    "proto__MLPpub": [
+      0.789,
+      0.175
+    ],
+    "proto__LR": [
+      0.697,
+      0.192
+    ],
+    "proto__HGB": [
+      0.788,
+      0.155
+    ],
+    "mpnn__MPNN": [
+      0.985,
+      0.509
+    ],
+    "ORACLE": [
+      0.993,
+      0.806
+    ]
+  }
+}
