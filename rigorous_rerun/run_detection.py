@@ -26,6 +26,8 @@ import numpy as np
 from common import (OUT, SEEDS, PEER_HI, jdump, main_tensors, outer_inner_splits, peer_intensity,
                     prototype_features, thresholds_from_val)
 from models import GRIDS, platt, select_and_predict
+import baselines  # noqa: F401  (registers RULE / GCN / GCNGEO / GAT; PREREGISTRATION_v3)
+from baselines import edge_interaction_features
 
 
 # ---------------------------------------------------------------------------
@@ -60,6 +62,12 @@ SPECS = {
     "proto__MLP": ("MLP", tab(prototype_features)),
     "mpnn__MPNN": ("MPNN", graph(["bb"], ["chan", "int", "bb", "geo"])),
     "mpnn_raw__MPNN": ("MPNN", graph(["bb", "raw"], ["chan", "int", "bb", "geo"])),
+    # --- Stage-2 baselines (PREREGISTRATION_v3.md) ------------------------------
+    "rule__RULE": ("RULE", graph(["bb"], ["chan", "int", "bb", "geo"])),
+    "edgefeat__HGB": ("HGB", tab(edge_interaction_features)),
+    "gcn__GCN": ("GCN", graph(["bb"], ["chan", "int", "bb", "geo"])),
+    "gcngeo__GCNGEO": ("GCNGEO", graph(["bb"], ["chan", "int", "bb", "geo"])),
+    "gat__GAT": ("GAT", graph(["bb"], ["chan", "int", "bb", "geo"])),
 }
 
 # Tier-2 isolation / ablation specs use a FIXED configuration (no per-fold search)

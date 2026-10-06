@@ -1,0 +1,97 @@
+{
+  "shift_same|proto__MLPpub": {
+    "roc": 0.8994308605303922,
+    "roc_ci": [
+      0.8670761968712767,
+      0.9280920446617665
+    ],
+    "n_cohorts": 40,
+    "prevalence": 0.012109375
+  },
+  "shift_same|mpnn__MPNN": {
+    "roc": 0.9864858058705398,
+    "roc_ci": [
+      0.9811482128373922,
+      0.9905306557311964
+    ],
+    "n_cohorts": 40,
+    "prevalence": 0.012109375
+  },
+  "lockbox|proto__MLPpub": {
+    "roc": 0.8130484103175389,
+    "roc_ci": [
+      0.7734700120143607,
+      0.8486541536940991
+    ],
+    "n_cohorts": 120,
+    "prevalence": 0.014930555555555556
+  },
+  "lockbox|mpnn__MPNN": {
+    "roc": 0.9866385194719797,
+    "roc_ci": [
+      0.9839015757120537,
+      0.9887341184022583
+    ],
+    "n_cohorts": 120,
+    "prevalence": 0.014930555555555556
+  },
+  "calibration_realised_prevalence": 0.013454861111111112,
+  "calibration_cohorts_without_positives": 0,
+  "holm_ablation": {
+    "abl_mpnn_no_geo__MPNN": {
+      "p": 2.284560628069712e-10,
+      "p_holm": 2.0561045652627406e-09,
+      "mean_paired_dPR": -0.5922371577997435,
+      "pooled_PR": 0.050127117873677726
+    },
+    "abl_mpnn_no_peer_bb__MPNN": {
+      "p": 0.07638241463722713,
+      "p_holm": 0.5346769024605899,
+      "mean_paired_dPR": 0.04371697266549928,
+      "pooled_PR": 0.6909615191581325
+    },
+    "abl_mpnn_no_int__MPNN": {
+      "p": 0.7139060069160367,
+      "p_holm": 1.0,
+      "mean_paired_dPR": -0.012624112622902653,
+      "pooled_PR": 0.6331723828119531
+    },
+    "abl_mpnn_no_victim__MPNN": {
+      "p": 0.9324009859860705,
+      "p_holm": 1.0,
+      "mean_paired_dPR": 0.0026698867086528155,
+      "pooled_PR": 0.6588890494464638
+    },
+    "abl_mpnn_mean_agg__MPNN": {
+      "p": 0.5947960500836946,
+      "p_holm": 1.0,
+      "mean_paired_dPR": -0.01230870377586887,
+      "pooled_PR": 0.6459905979792817
+    },
+    "abl_mpnn_max_agg__MPNN": {
+      "p": 0.42367732613635145,
+      "p_holm": 1.0,
+      "mean_paired_dPR": -0.02677610223878072,
+      "pooled_PR": 0.6249747500143726
+    },
+    "abl_mpnn_posw__MPNN": {
+      "p": 0.8392493347552272,
+      "p_holm": 1.0,
+      "mean_paired_dPR": -0.005205560676500296,
+      "pooled_PR": 0.6434478117329767
+    },
+    "abl_mpnn_logd__MPNN": {
+      "p": 0.48477374429668396,
+      "p_holm": 1.0,
+      "mean_paired_dPR": -0.014706072691232662,
+      "pooled_PR": 0.63813244503741
+    },
+    "mpnn_raw__MPNN": {
+      "p": 0.022706998397291574,
+      "p_holm": 0.1816559871783326,
+      "mean_paired_dPR": -0.09134638614555902,
+      "pooled_PR": 0.5363003157608691
+    }
+  },
+  "base_pooled_PR": 0.6518026905467349
+}
