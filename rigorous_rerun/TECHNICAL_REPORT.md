@@ -530,3 +530,40 @@ Decision rule: met. MPNN recall @10% is ≥ 0.937 under every attack, so the rob
   * On the 66 tracks with at least one expected attacker-induced frame, it reaches zero alarms on only one track.
   * Harm and detectability are coupled by the generator.
 * Out-of-view attacker: its high recall comes with a realised false-alarm rate above the 10% budget (0.145–0.167).
+
+## 15. Stage 7: generator family (PREREGISTRATION_v7)
+Code:
+* `stage7.py` (variants, main, ci);
+* `stage7_extra.py` (raw HGB on the lock-box, the Stage-3 variants and the Stage-5 attacks);
+* `stage7_attacker_target.py` (exploratory);
+* `verify_stage7.py` (checks; all pass);
+* `run_stage7b.sh` (raw HGB through nested CV, the lock-box and the stress corpora).
+
+Results: `outputs_v2/stage7/`, `outputs_v2/stage7_summary.json`, `outputs_v2/final_external/edgefeatraw__HGB.json`.
+
+Generators:
+* 5 structural variants: d2, cutoff, fovfree, and, sat.
+* 12 random generators drawn from a fixed prior.
+* 2 dose variants: ramp and intermittent.
+
+Every model keeps its fixed v2 configuration, with 5 seeds. A new baseline, the raw-channel interaction HGB, adds the explicit interaction terms of the raw normalised channels (not only the excess over the benign band).
+
+Pre-registered decision rules:
+1. **Circularity: failed.** The MPNN was best in 0 of 5 structural variants and in 8 of 12 random generators (4 of those 12 are undetectable, with ceiling PR < 0.15). The MPNN claim is restricted.
+2. **Strength:** see `ci.json`.
+3. **RQ3: positive.** On dose_intermittent, the filter-bank MPNN gains +0.077 [+0.044, +0.106] over the MPNN. On dose_ramp it gains nothing (−0.049 [−0.095, −0.000]).
+4. **Fairness: triggered.** The raw HGB beats the MPNN on the lock-box:
+   * 0.743 vs 0.688, a paired difference of −0.055 [−0.105, −0.009];
+   * in nested CV, 0.641 ± 0.061 vs 0.617 ± 0.042, which is not significant (p = 0.39; the MPNN wins 7 of 25 folds).
+5. **Within-band attacker:** the rule passes but is not informative.
+   * Harm is 1.19× the standard attack.
+   * Excess-only detectors (rule, excess HGB) reach recall ≈ 0.
+   * The MPNN reaches recall 0.994 at the 10% budget, but at a realised FPR of 0.138; at the 1% budget its recall is 0.340.
+
+Findings across all 24 detectable generators (family plus Stage-3 variants):
+* The best detector is a per-edge interaction model (MPNN or raw HGB) in 23 of 24. The exception is g2, where the rule wins.
+* The raw HGB scores above the MPNN in 18 of 24, significantly in 5; the MPNN is significantly better in 2.
+* On the attacker-induced target (exploratory, 11 generators), the MPNN scores higher in 9, significantly in 2. On the lock-box it scores higher by +0.194 [+0.103, +0.266].
+* Transfer from v2 to the other generators: both per-edge models lose at least 30% of their PR in 9 of 13 detectable generators, and the rule is the best transferred detector in 4.
+
+Framing decision (user): the paper reports benchmark findings and proposes no method (`main_revised7.tex`).

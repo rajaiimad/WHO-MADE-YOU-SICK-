@@ -40,6 +40,16 @@ def edge_interaction_features(t):
     return np.concatenate([t["V_bb"], a.sum(1), a.max(1), b.sum(1), b.max(1)], 1).astype(np.float32)
 
 
+def edge_raw_features(t):
+    """Stage 7 (PREREGISTRATION_v7, item E): the excess-only interaction features plus the same
+    interaction terms on the raw normalised channels, so within-band peer behaviour is visible too."""
+    from common import PEER_HI
+    x = t["E_chan"] / PEER_HI
+    d, v = t["E_geo"][..., 0:1], t["E_geo"][..., 1:2]
+    a, b = x * v / (d + 0.1), x / (d + 0.1)
+    return np.concatenate([edge_interaction_features(t), a.sum(1), a.max(1), b.sum(1), b.max(1)], 1).astype(np.float32)
+
+
 # ---------------------------------------------------------------- GCN / GAT on the star graph
 def _nets():
     torch = _torch()

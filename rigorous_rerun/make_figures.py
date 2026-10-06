@@ -50,7 +50,7 @@ def fig_method():
     box(ax, 0.35, 0.60, 0.28, 0.24, "Directed edge: peer j → victim i\ndistance, field-of-view overlap,\naudio proximity\n(from avatar poses)")
     box(ax, 0.35, 0.06, 0.28, 0.42, "Victim i, frame t: each\nincoming edge carries\npeer channels, excess over\nthe public benign band,\npeer backbone outputs,\nand edge geometry")
     arrow(ax, (0.29, 0.13), (0.35, 0.22)); arrow(ax, (0.49, 0.60), (0.49, 0.48))
-    box(ax, 0.69, 0.50, 0.31, 0.36, "Detection (MPNN)\nmessage: m_j = φ(victim, edge j)\naggregate: sum and max over j\nscore: ρ(victim, aggregate)\n→ P(unsafe at frame t)", fc="#fdf0ea",
+    box(ax, 0.69, 0.50, 0.31, 0.36, "Detection: model each edge,\nthen aggregate over peers\n(a) MPNN: learned message\n(b) HGB: explicit interaction terms\n→ P(unsafe at frame t)", fc="#fdf0ea",
         ec=ORANGE)
     box(ax, 0.69, 0.06, 0.31, 0.34, "Attribution (per-edge classifier)\nscores every incoming edge;\ntop-scoring peer = candidate\nsource; channel-agnostic\nfeatures for unseen channels", fc="#eaf2fb", ec=BLUE)
     arrow(ax, (0.63, 0.30), (0.69, 0.66)); arrow(ax, (0.63, 0.25), (0.69, 0.22))
@@ -73,16 +73,18 @@ def fig_protocol():
 
 def fig_lockbox():
     F = {m: J(f"final_external/{m}.json")["lockbox"] for m in
-         ("victim_bb__MLPpub", "proto__MLPpub", "rule__RULE", "gcngeo__GCNGEO", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN", "ORACLE")}
+         ("victim_bb__MLPpub", "proto__MLPpub", "rule__RULE", "gcngeo__GCNGEO", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN",
+          "edgefeatraw__HGB", "ORACLE")}
     lab = {"victim_bb__MLPpub": "Victim-\nonly", "proto__MLPpub": "Prototype\n(orig. MLP)", "rule__RULE": "Rule\ndetector",
-           "gcngeo__GCNGEO": "GCN +\ngeometry", "edgefeat__HGB": "Edge-inter.\nHGB", "gat__GAT": "GAT", "mpnn__MPNN": "MPNN"}
-    col = {m: (ORANGE if m == "mpnn__MPNN" else BLUE) for m in lab}
+           "gcngeo__GCNGEO": "GCN +\ngeometry", "edgefeat__HGB": "Excess-only\nint. HGB", "gat__GAT": "GAT", "mpnn__MPNN": "MPNN",
+           "edgefeatraw__HGB": "Raw-channel\nint. HGB"}
+    col = {m: (ORANGE if m in ("mpnn__MPNN", "edgefeatraw__HGB") else BLUE) for m in lab}
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.6))
     for ax, met, ttl in ((axs[0], "roc_auc", "ROC-AUC"), (axs[1], "pr_auc", "PR-AUC")):
         ms = list(lab)
         for i, m in enumerate(ms):
             v = F[m]["by_seed"][met][0]; lo, hi = F[m][f"ci95_{met}"]
-            ax.bar(i, v, width=0.6, color=col[m], alpha=1.0 if m == "mpnn__MPNN" else 0.55, edgecolor="white", lw=2)
+            ax.bar(i, v, width=0.6, color=col[m], alpha=1.0 if col[m] == ORANGE else 0.55, edgecolor="white", lw=2)
             ax.errorbar(i, v, yerr=[[v - lo], [hi - v]], color=INK, capsize=3, lw=1)
             ax.text(i, hi + 0.015, f"{v:.3f}", ha="center", va="bottom", fontsize=7, color=INK)
         o = F["ORACLE"]["by_seed"][met][0]
@@ -113,10 +115,12 @@ def fig_channels():
 
 
 def fig_robust():
-    F = {m: J(f"final_external/{m}.json") for m in ("proto__MLPpub", "rule__RULE", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN", "ORACLE")}
+    F = {m: J(f"final_external/{m}.json") for m in ("proto__MLPpub", "rule__RULE", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN",
+                                                    "edgefeatraw__HGB", "ORACLE")}
     SER = (("proto__MLPpub", BLUE, "Prototype (original MLP)", "-"), ("rule__RULE", "#7a7a7a", "Rule detector", "-"),
-           ("edgefeat__HGB", AQUA, "Edge-interaction HGB", "-"), ("gat__GAT", "#9b59b6", "GAT", "-"),
-           ("mpnn__MPNN", ORANGE, "MPNN", "-"), ("ORACLE", INK2, "Generator ceiling", "--"))
+           ("edgefeat__HGB", AQUA, "Excess-only int. HGB", "-"), ("gat__GAT", "#9b59b6", "GAT", "-"),
+           ("mpnn__MPNN", ORANGE, "MPNN", "-"), ("edgefeatraw__HGB", "#b5341c", "Raw-channel int. HGB", ":"),
+           ("ORACLE", INK2, "Generator ceiling", "--"))
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.6))
     sizes = [(2, "size_N2"), (3, "size_N3"), (4, "lockbox"), (6, "size_N6"), (8, "size_N8")]
     for m, c, l, ls in SER:
@@ -136,8 +140,8 @@ def fig_robust():
     for ax in axs:
         ax.yaxis.grid(True, color=GRID, lw=0.6); ax.set_axisbelow(True)
     h, l = axs[1].get_legend_handles_labels()
-    fig.legend(h, l, fontsize=7, frameon=False, loc="lower center", ncol=6, bbox_to_anchor=(0.5, -0.07))
-    fig.tight_layout(rect=(0, 0.07, 1, 1)); fig.savefig(FIG / "Fig_robustness.png", bbox_inches="tight"); plt.close(fig)
+    fig.legend(h, l, fontsize=7, frameon=False, loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.12))
+    fig.tight_layout(rect=(0, 0.11, 1, 1)); fig.savefig(FIG / "Fig_robustness.png", bbox_inches="tight"); plt.close(fig)
 
 
 def fig_loco():

@@ -83,13 +83,7 @@ def ema(A, lam):
     return out.reshape(A.shape)
 
 
-def edge_raw_features(t):
-    """E (pre-registered): edge-interaction features + the same terms on the raw normalised channels."""
-    from baselines import edge_interaction_features
-    x = t["E_chan"] / PEER_HI
-    d, v = t["E_geo"][..., 0:1], t["E_geo"][..., 1:2]
-    a, b = x * v / (d + 0.1), x / (d + 0.1)
-    return np.concatenate([edge_interaction_features(t), a.sum(1), a.max(1), b.sum(1), b.max(1)], 1).astype(np.float32)
+from baselines import edge_raw_features  # noqa: E402  (moved to baselines.py; kept importable here)
 
 
 def model_specs(temporal=False):
