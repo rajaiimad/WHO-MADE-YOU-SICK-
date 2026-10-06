@@ -14,7 +14,7 @@ from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
 from common import J7, OUT, PEER_NAMES
 
-FIG = J7 / "figures"
+FIG = J7 / "manuscript" / "figures_v4"
 FIG.mkdir(parents=True, exist_ok=True)
 BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"     # validated categorical slots 1-3
 INK, INK2, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
@@ -73,10 +73,10 @@ def fig_protocol():
 
 def fig_lockbox():
     F = {m: J(f"final_external/{m}.json")["lockbox"] for m in
-         ("victim_bb__MLPpub", "proto__MLPpub", "proto__LR", "proto__HGB", "mpnn__MPNN", "ORACLE")}
-    lab = {"victim_bb__MLPpub": "Victim-only", "proto__MLPpub": "Prototype\n(published)", "proto__LR": "Prototype\n+ LR",
-           "proto__HGB": "Prototype\n+ HGB", "mpnn__MPNN": "MPNN\n(proposed)"}
-    col = {"victim_bb__MLPpub": BLUE, "proto__MLPpub": BLUE, "proto__LR": BLUE, "proto__HGB": BLUE, "mpnn__MPNN": ORANGE}
+         ("victim_bb__MLPpub", "proto__MLPpub", "rule__RULE", "gcngeo__GCNGEO", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN", "ORACLE")}
+    lab = {"victim_bb__MLPpub": "Victim-\nonly", "proto__MLPpub": "Prototype\n(orig. MLP)", "rule__RULE": "Rule\ndetector",
+           "gcngeo__GCNGEO": "GCN +\ngeometry", "edgefeat__HGB": "Edge-inter.\nHGB", "gat__GAT": "GAT", "mpnn__MPNN": "MPNN"}
+    col = {m: (ORANGE if m == "mpnn__MPNN" else BLUE) for m in lab}
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.6))
     for ax, met, ttl in ((axs[0], "roc_auc", "ROC-AUC"), (axs[1], "pr_auc", "PR-AUC")):
         ms = list(lab)
@@ -90,7 +90,7 @@ def fig_lockbox():
         if met == "pr_auc":
             p = F["mpnn__MPNN"]["by_seed"]["prevalence"][0]
             ax.axhline(p, color=INK2, ls=":", lw=1); pass
-        ax.set_xticks(range(len(ms))); ax.set_xticklabels([lab[m] for m in ms], fontsize=7)
+        ax.set_xticks(range(len(ms))); ax.set_xticklabels([lab[m] for m in ms], fontsize=6, rotation=35, ha="right")
         ax.set_ylim(0.4 if met == "roc_auc" else 0, 1.08); ax.set_title(ttl, fontsize=9, color=INK)
         ax.yaxis.grid(True, color=GRID, lw=0.6); ax.set_axisbelow(True)
     fig.tight_layout(); fig.savefig(FIG / "Fig_lockbox_detection.png", bbox_inches="tight"); plt.close(fig)
@@ -101,7 +101,7 @@ def fig_channels():
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.5))
     xs = range(len(PEER_NAMES)); w = 0.36
     for ax, k, ttl in ((axs[0], 0, "ROC-AUC by attack channel"), (axs[1], 1, "PR-AUC by attack channel")):
-        for off, m, c, l in ((-w / 2, "proto__MLPpub", BLUE, "Prototype (published)"), (w / 2, "mpnn__MPNN", ORANGE, "MPNN (proposed)")):
+        for off, m, c, l in ((-w / 2, "proto__MLPpub", BLUE, "Prototype (original MLP)"), (w / 2, "mpnn__MPNN", ORANGE, "MPNN")):
             ax.bar([x + off for x in xs], [pc[ch][m][k] for ch in PEER_NAMES], width=w, color=c, edgecolor="white", lw=2, label=l)
         ax.scatter(list(xs), [pc[ch]["ORACLE"][k] for ch in PEER_NAMES], marker="_", s=260, color=INK, zorder=3, label="Generator ceiling")
         ax.set_xticks(list(xs)); ax.set_xticklabels([CH[c] for c in PEER_NAMES], fontsize=7)
@@ -113,27 +113,31 @@ def fig_channels():
 
 
 def fig_robust():
-    F = {m: J(f"final_external/{m}.json") for m in ("proto__MLPpub", "mpnn__MPNN", "ORACLE")}
+    F = {m: J(f"final_external/{m}.json") for m in ("proto__MLPpub", "rule__RULE", "edgefeat__HGB", "gat__GAT", "mpnn__MPNN", "ORACLE")}
+    SER = (("proto__MLPpub", BLUE, "Prototype (original MLP)", "-"), ("rule__RULE", "#7a7a7a", "Rule detector", "-"),
+           ("edgefeat__HGB", AQUA, "Edge-interaction HGB", "-"), ("gat__GAT", "#9b59b6", "GAT", "-"),
+           ("mpnn__MPNN", ORANGE, "MPNN", "-"), ("ORACLE", INK2, "Generator ceiling", "--"))
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.6))
     sizes = [(2, "size_N2"), (3, "size_N3"), (4, "lockbox"), (6, "size_N6"), (8, "size_N8")]
-    for m, c, l in (("proto__MLPpub", BLUE, "Prototype (published)"), ("mpnn__MPNN", ORANGE, "MPNN (proposed)"), ("ORACLE", INK2, "Generator ceiling")):
-        axs[0].plot([n for n, _ in sizes], [F[m][k]["by_seed"]["roc_auc"][0] for _, k in sizes], marker="o", ms=4, lw=2,
-                    color=c, ls="--" if m == "ORACLE" else "-", label=l)
+    for m, c, l, ls in SER:
+        axs[0].plot([n for n, _ in sizes], [F[m][k]["by_seed"]["roc_auc"][0] for _, k in sizes], marker="o", ms=3, lw=1.6,
+                    color=c, ls=ls, label=l)
     axs[0].axvline(4, color=GRID, lw=1); axs[0].text(4.1, 0.25, "training size", fontsize=7, color=INK2)
     axs[0].axhline(0.5, color=INK2, lw=0.8, ls=":"); axs[0].text(6.2, 0.52, "chance", fontsize=7, color=INK2)
     axs[0].set_xlabel("Users per cohort at test time"); axs[0].set_ylabel("ROC-AUC"); axs[0].set_ylim(0.1, 1.05)
     axs[0].set_title("(a) Transfer to unseen cohort sizes", fontsize=9)
     al = [1.0, 0.8, 0.6, 0.4, 0.2]
-    for m, c, l in (("proto__MLPpub", BLUE, "Prototype (published)"), ("mpnn__MPNN", ORANGE, "MPNN (proposed)"), ("ORACLE", INK2, "Generator ceiling")):
-        axs[1].plot(al, [F[m][f"adapt_a{a}"]["by_seed"]["fpr10_recall"][0] for a in al], marker="o", ms=4, lw=2, color=c,
-                    ls="--" if m == "ORACLE" else "-", label=l)
+    for m, c, l, ls in SER:
+        axs[1].plot(al, [F[m][f"adapt_a{a}"]["by_seed"]["fpr10_recall"][0] for a in al], marker="o", ms=3, lw=1.6, color=c,
+                    ls=ls, label=l)
     axs[1].invert_xaxis(); axs[1].set_xlabel("Attacker intensity α (lower = stealthier)")
     axs[1].set_ylabel("Recall at 10% false-alarm budget"); axs[1].set_ylim(0, 1.05)
     axs[1].set_title("(b) Adaptive attacker, labels re-simulated", fontsize=9)
     for ax in axs:
         ax.yaxis.grid(True, color=GRID, lw=0.6); ax.set_axisbelow(True)
-    axs[1].legend(fontsize=7, frameon=False, loc="lower left")
-    fig.tight_layout(); fig.savefig(FIG / "Fig_robustness.png", bbox_inches="tight"); plt.close(fig)
+    h, l = axs[1].get_legend_handles_labels()
+    fig.legend(h, l, fontsize=7, frameon=False, loc="lower center", ncol=6, bbox_to_anchor=(0.5, -0.07))
+    fig.tight_layout(rect=(0, 0.07, 1, 1)); fig.savefig(FIG / "Fig_robustness.png", bbox_inches="tight"); plt.close(fig)
 
 
 def fig_loco():

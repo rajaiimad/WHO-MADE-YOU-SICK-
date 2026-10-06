@@ -69,10 +69,57 @@ def _oov_pose(rng, poses, aid, n_cand=64, min_d=0.0):
     return poses[aid] if best is None else (best, poses[aid][1], poses[aid][2])
 
 
+def _near_pose(rng, poses, aid, n_cand=64, min_d=1.0):
+    """Stage 7: among n_cand random positions at least min_d from every other user, the one with
+    the largest sum of view overlap / distance over the other users (it faces its original way)."""
+    best, best_v = None, -1.0
+    others = [u for u in range(len(poses)) if u != aid]
+    for _ in range(n_cand):
+        cand, _, _ = _sample_avatar_pose(rng, 8.0)
+        ds = [np.linalg.norm(cand - poses[u][0]) for u in others]
+        if min(ds) < min_d:
+            continue
+        val = sum(_fov_overlap(poses[u][0], poses[u][1], cand, poses[u][2]) / d for u, d in zip(others, ds))
+        if val > best_v:
+            best, best_v = cand, val
+    return poses[aid] if best is None else (best, poses[aid][1], poses[aid][2])
+
+
+def edge_contrib(x, d, ov, v):
+    """Contribution of one peer to one victim at gain 1 (x: (T,5) normalised channels).
+    Default = v2: (x @ w) * ov / d in view, w5 * x5 / d out of view. Stage-7 keys change the form:
+    dpow / dcut (distance kernel), fovq (view-overlap exponent), fovfree (channels that act
+    regardless of view), and (non-additive term), sat (saturation), w (channel weights)."""
+    w = np.asarray(v.get("w", W), np.float32)
+    dd = d + 1e-3
+    keys = ("dpow", "dcut", "fovq", "fovfree", "and", "sat", "w")
+    if not any(k in v for k in keys):
+        full = (x @ W) * ov / dd
+        return np.where(ov == 0, W[4] * x[:, 4] / dd, full)
+    ker = 1.0 / dd ** v["dpow"] if "dpow" in v else (d <= v["dcut"]).astype(np.float64) if "dcut" in v else 1.0 / dd
+    free = list(v.get("fovfree", ()))
+    bound = [c for c in range(5) if c not in free]
+    q = v.get("fovq", 1.0)
+    vis = np.where(ov > 0, ov ** q, 0.0)
+    inview = x[:, bound] @ w[bound]
+    if "and" in v:
+        a, b, wt = v["and"]
+        inview = inview + wt * x[:, a] * x[:, b]
+    freeterm = x[:, free] @ w[free] if free else 0.0
+    free_v = [c for c in free if c != 4]                    # audio always acts out of view
+    oof = w[4] * x[:, 4] + (x[:, free_v] @ w[free_v] if free_v else 0.0)
+    out = np.where(ov == 0, oof, inview * vis + freeterm) * ker
+    if "sat" in v:
+        tau = v["sat"]
+        out = tau * (1 - np.exp(-out / tau))
+    return out
+
+
 def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True):
     """Returns tensors dict; `gain` overrides v['gain'] (used by calibration)."""
     agg, dose, spike_p, moving = v.get("agg", "sum"), v.get("dose"), v.get("spike_p", 0.0), v.get("moving", False)
-    params = GenParams()
+    params = GenParams(temporal_profile=v.get("profile", "ramp"))
+    sigma = v.get("sigma", 0.05)
     rows = n_cohorts * tracks * N * T
     K = N - 1
     out = dict(ctx=np.zeros((rows, 4), np.int64), V_raw=np.zeros((rows, 20), np.float32),
@@ -93,6 +140,8 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
             is_atk = rng.random() < 0.5
             aid = int(rng.integers(0, N)) if is_atk else -1
             ach = str(rng.choice(PEER_NAMES)) if is_atk else ""
+            if v.get("near") and is_atk:    # Stage 7: within-band attacker standing close and in view
+                poses[aid] = _near_pose(np.random.default_rng([seed0 + cid, tk, 8]), poses, aid)
             if v.get("oov") and is_atk:     # Stage 5: out-of-view spatial-audio attacker
                 ach = PEER_NAMES[4]
                 poses[aid] = _oov_pose(np.random.default_rng([seed0 + cid, tk, 7]), poses, aid, min_d=v.get("oov_min_d", 0.0))
@@ -107,6 +156,9 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                     for t in np.where(m)[0]:
                         k = ks[t]
                         PC[u, t, k] = rng.uniform(BEN_HI[k], BEN_HI[k] + 0.5 * (PEER_HI[k] - BEN_HI[k]))
+            if v.get("near") and is_atk:    # attack channel held at the top of the benign band
+                k = PEER_NAMES.index(ach)
+                PC[aid, :, k] = BEN_HI[k]
             # per-frame poses
             pos = np.zeros((N, T, 3)); ori = np.zeros((N, T, 3)); fov = np.array([p[2] for p in poses])
             for u in range(N):
@@ -130,10 +182,16 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                        + udf[i]["latency_ms"].values / 200.0) / 3.0
                 C = np.zeros((N, T), np.float32)          # contribution at gain 1
                 for j in js:
-                    dd = D[i, j] + 1e-3
-                    full = (nrm[j] @ W) * OV[i, j] / dd
-                    C[j] = np.where(OV[i, j] == 0, W[4] * nrm[j, :, 4] / dd, full)
-                peer = C.max(0) if agg == "max" else C.sum(0)
+                    C[j] = edge_contrib(nrm[j], D[i, j], OV[i, j], v)
+                if agg == "max":
+                    peer = C.max(0)
+                elif agg == "lse":                        # Stage 7: soft maximum over peers
+                    tmp = v["lse_t"]
+                    Cj = C[js].astype(np.float64)
+                    m = Cj.max(0)
+                    peer = m + tmp * np.log(np.exp((Cj - m) / tmp).sum(0))
+                else:
+                    peer = C.sum(0)
                 if dose:
                     P = np.zeros(T)
                     acc = 0.0
@@ -143,7 +201,7 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                     peer = P
                 g = gain
                 score = own + g * peer
-                s = score + rng.normal(0, 0.05, T)
+                s = score + rng.normal(0, sigma, T)
                 sev = np.zeros(T, np.int64); sev[s > 0.15] = 1; sev[s > 0.30] = 2; sev[s > 0.55] = 3
                 attributed = is_atk and i != aid and (g * C[aid]).mean() > 0.02
                 sl = slice(r, r + T)
@@ -183,7 +241,8 @@ def calibrate_gain(v, target=0.0138):
     s0, s1 = S3["calib"]
     t = generate(s0, s1 - s0, v, gain=1.0, with_backbone=False)
     own, peer = t["own_prov"], t["peer_term"]
-    return float(brentq(lambda g: (1 - norm.cdf((0.30 - own - g * peer) / 0.05)).mean() - target, 0.1, 100))
+    sg = v.get("sigma", 0.05)
+    return float(brentq(lambda g: (1 - norm.cdf((0.30 - own - g * peer) / sg)).mean() - target, 0.01, 1000))
 
 
 def corpus(name, which, v, gain):

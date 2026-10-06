@@ -1,0 +1,427 @@
+[d2] rule__RULE             PR 0.271 (23s)
+[d2] proto__MLPpub          PR 0.038 (41s)
+[d2] edgefeat__HGB          PR 0.138 (50s)
+[d2] edgefeatraw__HGB       PR 0.564 (71s)
+[d2] gat__GAT               PR 0.069 (142s)
+[d2] mpnn__MPNN             PR 0.341 (205s)
+[d2] gain 3.577 prev 0.0080 ceiling 0.913 | MPNN 0.341 best other edgefeatraw__HGB 0.564
+[cutoff] rule__RULE             PR 0.348 (225s)
+[cutoff] proto__MLPpub          PR 0.121 (238s)
+[cutoff] edgefeat__HGB          PR 0.358 (246s)
+[cutoff] edgefeatraw__HGB       PR 0.436 (260s)
+[cutoff] gat__GAT               PR 0.230 (309s)
+[cutoff] mpnn__MPNN             PR 0.374 (394s)
+[cutoff] gain 3.279 prev 0.0105 ceiling 0.853 | MPNN 0.374 best other edgefeatraw__HGB 0.436
+[fovfree] rule__RULE             PR 0.256 (427s)
+[fovfree] proto__MLPpub          PR 0.182 (446s)
+[fovfree] edgefeat__HGB          PR 0.309 (459s)
+[fovfree] edgefeatraw__HGB       PR 0.493 (481s)
+[fovfree] gat__GAT               PR 0.322 (546s)
+[fovfree] mpnn__MPNN             PR 0.442 (629s)
+[fovfree] gain 1.466 prev 0.0085 ceiling 0.719 | MPNN 0.442 best other edgefeatraw__HGB 0.493
+[and] rule__RULE             PR 0.371 (649s)
+[and] proto__MLPpub          PR 0.148 (662s)
+[and] edgefeat__HGB          PR 0.341 (671s)
+[and] edgefeatraw__HGB       PR 0.604 (688s)
+[and] gat__GAT               PR 0.261 (759s)
+[and] mpnn__MPNN             PR 0.553 (816s)
+[and] gain 3.421 prev 0.0102 ceiling 0.796 | MPNN 0.553 best other edgefeatraw__HGB 0.604
+[sat] rule__RULE             PR 0.342 (836s)
+[sat] proto__MLPpub          PR 0.152 (851s)
+[sat] edgefeat__HGB          PR 0.331 (859s)
+[sat] edgefeatraw__HGB       PR 0.585 (874s)
+[sat] gat__GAT               PR 0.244 (943s)
+[sat] mpnn__MPNN             PR 0.518 (1002s)
+[sat] gain 3.975 prev 0.0107 ceiling 0.753 | MPNN 0.518 best other edgefeatraw__HGB 0.585
+[rand00] rule__RULE             PR 0.245 (1022s)
+[rand00] proto__MLPpub          PR 0.132 (1036s)
+[rand00] edgefeat__HGB          PR 0.296 (1045s)
+[rand00] edgefeatraw__HGB       PR 0.382 (1058s)
+[rand00] gat__GAT               PR 0.258 (1114s)
+[rand00] mpnn__MPNN             PR 0.409 (1167s)
+[rand00] gain 1.889 prev 0.0138 ceiling 0.573 | MPNN 0.409 best other edgefeatraw__HGB 0.382
+[rand01] rule__RULE             PR 0.032 (1188s)
+[rand01] proto__MLPpub          PR 0.019 (1195s)
+[rand01] edgefeat__HGB          PR 0.033 (1203s)
+[rand01] edgefeatraw__HGB       PR 0.031 (1214s)
+[rand01] gat__GAT               PR 0.031 (1250s)
+[rand01] mpnn__MPNN             PR 0.036 (1300s)
+[rand01] gain 0.785 prev 0.0130 ceiling 0.059 | MPNN 0.036 best other edgefeat__HGB 0.033
+[rand02] rule__RULE             PR 0.232 (1319s)
+[rand02] proto__MLPpub          PR 0.124 (1334s)
+[rand02] edgefeat__HGB          PR 0.413 (1342s)
+[rand02] edgefeatraw__HGB       PR 0.714 (1359s)
+[rand02] gat__GAT               PR 0.225 (1443s)
+[rand02] rule__RULE             PR 0.232 (5s)
+[rand02] proto__MLPpub          PR 0.124 (28s)
+[rand02] edgefeat__HGB          PR 0.413 (36s)
+[rand02] edgefeatraw__HGB       PR 0.714 (54s)
+[rand02] gat__GAT               PR 0.225 (152s)
+[rand02] mpnn__MPNN             PR 0.576 (214s)
+[rand02] gain 5.220 prev 0.0094 ceiling 0.832 | MPNN 0.576 best other edgefeatraw__HGB 0.714
+[rand03] rule__RULE             PR 0.225 (235s)
+[rand03] proto__MLPpub          PR 0.105 (248s)
+[rand03] edgefeat__HGB          PR 0.448 (255s)
+[rand03] edgefeatraw__HGB       PR 0.569 (274s)
+[rand03] gat__GAT               PR 0.507 (325s)
+[rand03] mpnn__MPNN             PR 0.660 (404s)
+[rand03] gain 3.147 prev 0.0087 ceiling 0.959 | MPNN 0.660 best other edgefeatraw__HGB 0.569
+[rand04] rule__RULE             PR 0.376 (424s)
+[rand04] proto__MLPpub          PR 0.215 (443s)
+[rand04] edgefeat__HGB          PR 0.523 (451s)
+[rand04] edgefeatraw__HGB       PR 0.603 (466s)
+[rand04] gat__GAT               PR 0.565 (517s)
+[rand04] mpnn__MPNN             PR 0.574 (565s)
+[rand04] gain 3.388 prev 0.0117 ceiling 0.897 | MPNN 0.574 best other edgefeatraw__HGB 0.603
+[rand05] rule__RULE             PR 0.275 (586s)
+[rand05] proto__MLPpub          PR 0.060 (607s)
+[rand05] edgefeat__HGB          PR 0.297 (615s)
+[rand05] edgefeatraw__HGB       PR 0.501 (637s)
+[rand05] gat__GAT               PR 0.317 (801s)
+[rand05] mpnn__MPNN             PR 0.543 (861s)
+[rand05] gain 4.984 prev 0.0084 ceiling 0.965 | MPNN 0.543 best other edgefeatraw__HGB 0.501
+[rand06] rule__RULE             PR 0.188 (882s)
+[rand06] proto__MLPpub          PR 0.264 (896s)
+[rand06] edgefeat__HGB          PR 0.584 (906s)
+[rand06] edgefeatraw__HGB       PR 0.617 (918s)
+[rand06] gat__GAT               PR 0.569 (984s)
+[rand06] mpnn__MPNN             PR 0.631 (1039s)
+[rand06] gain 1.908 prev 0.0102 ceiling 0.728 | MPNN 0.631 best other edgefeatraw__HGB 0.617
+[rand07] rule__RULE             PR 0.411 (1059s)
+[rand07] proto__MLPpub          PR 0.309 (1076s)
+[rand07] edgefeat__HGB          PR 0.548 (1087s)
+[rand07] edgefeatraw__HGB       PR 0.577 (1099s)
+[rand07] gat__GAT               PR 0.559 (1169s)
+[rand07] mpnn__MPNN             PR 0.638 (1221s)
+[rand07] gain 1.939 prev 0.0149 ceiling 0.793 | MPNN 0.638 best other edgefeatraw__HGB 0.577
+[rand08] rule__RULE             PR 0.031 (1242s)
+[rand08] proto__MLPpub          PR 0.015 (1249s)
+[rand08] edgefeat__HGB          PR 0.022 (1258s)
+[rand08] edgefeatraw__HGB       PR 0.028 (1270s)
+[rand08] gat__GAT               PR 0.021 (1307s)
+[rand08] mpnn__MPNN             PR 0.021 (1338s)
+[rand08] gain 0.748 prev 0.0107 ceiling 0.100 | MPNN 0.021 best other rule__RULE 0.031
+[rand09] rule__RULE             PR 0.016 (1359s)
+[rand09] proto__MLPpub          PR 0.018 (1366s)
+[rand09] edgefeat__HGB          PR 0.021 (1375s)
+[rand09] edgefeatraw__HGB       PR 0.021 (1386s)
+[rand09] gat__GAT               PR 0.023 (1425s)
+[rand09] mpnn__MPNN             PR 0.023 (1456s)
+[rand09] gain 0.848 prev 0.0132 ceiling 0.036 | MPNN 0.023 best other gat__GAT 0.023
+[rand10] rule__RULE             PR 0.031 (1477s)
+[rand10] proto__MLPpub          PR 0.018 (1484s)
+[rand10] edgefeat__HGB          PR 0.028 (1492s)
+[rand10] edgefeatraw__HGB       PR 0.028 (1504s)
+[rand10] gat__GAT               PR 0.028 (1550s)
+[rand10] mpnn__MPNN             PR 0.028 (1609s)
+[rand10] gain 0.642 prev 0.0132 ceiling 0.063 | MPNN 0.028 best other rule__RULE 0.031
+[rand11] rule__RULE             PR 0.158 (1630s)
+[rand11] proto__MLPpub          PR 0.062 (1646s)
+[rand11] edgefeat__HGB          PR 0.214 (1654s)
+[rand11] edgefeatraw__HGB       PR 0.328 (1672s)
+[rand11] gat__GAT               PR 0.351 (1749s)
+[rand11] mpnn__MPNN             PR 0.382 (1791s)
+[rand11] gain 3.677 prev 0.0087 ceiling 0.661 | MPNN 0.382 best other gat__GAT 0.351
+[dose_ramp] rule__RULE             PR 0.374 (1811s)
+[dose_ramp] proto__MLPpub          PR 0.150 (1823s)
+[dose_ramp] edgefeat__HGB          PR 0.307 (1832s)
+[dose_ramp] edgefeatraw__HGB       PR 0.540 (1848s)
+[dose_ramp] gat__GAT               PR 0.230 (1936s)
+[dose_ramp] mpnn__MPNN             PR 0.516 (1995s)
+[dose_ramp] edgefeat_cm__HGB       PR 0.298 (2006s)
+[dose_ramp] edgefeat_ema__HGB      PR 0.259 (2032s)
+[dose_ramp] mpnn_cm__MPNN          PR 0.520 (2086s)
+[dose_ramp] mpnn_ema__MPNN         PR 0.470 (2151s)
+[dose_ramp] gain 4.185 prev 0.0102 ceiling 0.779 | MPNN 0.516 best other edgefeatraw__HGB 0.540
+[dose_intermittent] rule__RULE             PR 0.077 (2172s)
+[dose_intermittent] proto__MLPpub          PR 0.024 (2183s)
+[dose_intermittent] edgefeat__HGB          PR 0.083 (2192s)
+[dose_intermittent] edgefeatraw__HGB       PR 0.344 (2206s)
+[dose_intermittent] gat__GAT               PR 0.085 (2294s)
+[dose_intermittent] mpnn__MPNN             PR 0.302 (2352s)
+[dose_intermittent] edgefeat_cm__HGB       PR 0.134 (2364s)
+[dose_intermittent] edgefeat_ema__HGB      PR 0.112 (2386s)
+[dose_intermittent] mpnn_cm__MPNN          PR 0.403 (2487s)
+[dose_intermittent] mpnn_ema__MPNN         PR 0.378 (2589s)
+[dose_intermittent] gain 4.691 prev 0.0099 ceiling 0.700 | MPNN 0.302 best other edgefeatraw__HGB 0.344
+main rule__RULE done (14s)
+main proto__MLPpub done (38s)
+main edgefeat__HGB done (78s)
+main edgefeatraw__HGB done (231s)
+main gat__GAT done (336s)
+main mpnn__MPNN done (407s)
+{
+"lockbox": {
+"rule__RULE": 0.264,
+"proto__MLPpub": 0.198,
+"edgefeat__HGB": 0.44,
+"edgefeatraw__HGB": 0.743,
+"gat__GAT": 0.481,
+"mpnn__MPNN": 0.688
+},
+"standard70k": {
+"rule__RULE": 0.257,
+"proto__MLPpub": 0.13,
+"edgefeat__HGB": 0.425,
+"edgefeatraw__HGB": 0.671,
+"gat__GAT": 0.457,
+"mpnn__MPNN": 0.651
+},
+"near70k": {
+"rule__RULE": 0.012,
+"proto__MLPpub": 0.021,
+"edgefeat__HGB": 0.016,
+"edgefeatraw__HGB": 0.437,
+"gat__GAT": 0.121,
+"mpnn__MPNN": 0.344
+},
+"d2": {
+"rule__RULE": 0.271,
+"proto__MLPpub": 0.064,
+"edgefeat__HGB": 0.161,
+"edgefeatraw__HGB": 0.396,
+"gat__GAT": 0.13,
+"mpnn__MPNN": 0.269
+},
+"cutoff": {
+"rule__RULE": 0.348,
+"proto__MLPpub": 0.156,
+"edgefeat__HGB": 0.394,
+"edgefeatraw__HGB": 0.359,
+"gat__GAT": 0.334,
+"mpnn__MPNN": 0.382
+},
+"fovfree": {
+"rule__RULE": 0.256,
+"proto__MLPpub": 0.093,
+"edgefeat__HGB": 0.077,
+"edgefeatraw__HGB": 0.122,
+"gat__GAT": 0.068,
+"mpnn__MPNN": 0.116
+},
+"and": {
+"rule__RULE": 0.371,
+"proto__MLPpub": 0.18,
+"edgefeat__HGB": 0.395,
+"edgefeatraw__HGB": 0.64,
+"gat__GAT": 0.422,
+"mpnn__MPNN": 0.628
+},
+"sat": {
+"rule__RULE": 0.342,
+"proto__MLPpub": 0.169,
+"edgefeat__HGB": 0.36,
+"edgefeatraw__HGB": 0.606,
+"gat__GAT": 0.377,
+"mpnn__MPNN": 0.589
+},
+"rand00": {
+"rule__RULE": 0.245,
+"proto__MLPpub": 0.13,
+"edgefeat__HGB": 0.21,
+"edgefeatraw__HGB": 0.243,
+"gat__GAT": 0.215,
+"mpnn__MPNN": 0.279
+},
+"rand01": {
+"rule__RULE": 0.032,
+"proto__MLPpub": 0.023,
+"edgefeat__HGB": 0.022,
+"edgefeatraw__HGB": 0.027,
+"gat__GAT": 0.022,
+"mpnn__MPNN": 0.027
+},
+"rand02": {
+"rule__RULE": 0.232,
+"proto__MLPpub": 0.07,
+"edgefeat__HGB": 0.174,
+"edgefeatraw__HGB": 0.408,
+"gat__GAT": 0.188,
+"mpnn__MPNN": 0.379
+},
+"rand03": {
+"rule__RULE": 0.225,
+"proto__MLPpub": 0.108,
+"edgefeat__HGB": 0.224,
+"edgefeatraw__HGB": 0.221,
+"gat__GAT": 0.185,
+"mpnn__MPNN": 0.214
+},
+"rand04": {
+"rule__RULE": 0.376,
+"proto__MLPpub": 0.149,
+"edgefeat__HGB": 0.19,
+"edgefeatraw__HGB": 0.207,
+"gat__GAT": 0.155,
+"mpnn__MPNN": 0.198
+},
+"rand05": {
+"rule__RULE": 0.275,
+"proto__MLPpub": 0.096,
+"edgefeat__HGB": 0.263,
+"edgefeatraw__HGB": 0.311,
+"gat__GAT": 0.201,
+"mpnn__MPNN": 0.281
+},
+"rand06": {
+"rule__RULE": 0.188,
+"proto__MLPpub": 0.082,
+"edgefeat__HGB": 0.179,
+"edgefeatraw__HGB": 0.21,
+"gat__GAT": 0.166,
+"mpnn__MPNN": 0.249
+},
+"rand07": {
+"rule__RULE": 0.411,
+"proto__MLPpub": 0.147,
+"edgefeat__HGB": 0.252,
+"edgefeatraw__HGB": 0.225,
+"gat__GAT": 0.239,
+"mpnn__MPNN": 0.294
+},
+"rand08": {
+"rule__RULE": 0.031,
+"proto__MLPpub": 0.018,
+"edgefeat__HGB": 0.018,
+"edgefeatraw__HGB": 0.031,
+"gat__GAT": 0.018,
+"mpnn__MPNN": 0.024
+},
+"rand09": {
+"rule__RULE": 0.016,
+"proto__MLPpub": 0.017,
+"edgefeat__HGB": 0.016,
+"edgefeatraw__HGB": 0.018,
+"gat__GAT": 0.015,
+"mpnn__MPNN": 0.018
+},
+"rand10": {
+"rule__RULE": 0.031,
+"proto__MLPpub": 0.024,
+"edgefeat__HGB": 0.027,
+"edgefeatraw__HGB": 0.026,
+"gat__GAT": 0.025,
+"mpnn__MPNN": 0.028
+},
+"rand11": {
+"rule__RULE": 0.158,
+"proto__MLPpub": 0.073,
+"edgefeat__HGB": 0.166,
+"edgefeatraw__HGB": 0.17,
+"gat__GAT": 0.132,
+"mpnn__MPNN": 0.167
+}
+}
+{
+ "standard70k": {
+  "harm": 687,
+  "expected_harm": 713.4946127984857,
+  "rule__RULE": {
+   "pr_attacker": 0.3402492898132946,
+   "pr_unsafe": 0.25658931610165997,
+   "recall_attacker_fpr10": 0.9796215429403203,
+   "realised_fpr_fpr10": 0.10726884077829543,
+   "recall_attacker_fpr1": 0.615429403202329,
+   "realised_fpr_fpr1": 0.01222252671964922
+  },
+  "proto__MLPpub": {
+   "pr_attacker": 0.16188884266261777,
+   "pr_unsafe": 0.12951066255447044,
+   "recall_attacker_fpr10": 0.7671033478893741,
+   "realised_fpr_fpr10": 0.10222855576870375,
+   "recall_attacker_fpr1": 0.34061135371179035,
+   "realised_fpr_fpr1": 0.010560701562071801
+  },
+  "edgefeat__HGB": {
+   "pr_attacker": 0.5583140436735524,
+   "pr_unsafe": 0.4247049871312899,
+   "recall_attacker_fpr10": 0.973216885007278,
+   "realised_fpr_fpr10": 0.11787558235132914,
+   "recall_attacker_fpr1": 0.821834061135371,
+   "realised_fpr_fpr1": 0.009657440394628665
+  },
+  "edgefeatraw__HGB": {
+   "pr_attacker": 0.5929029017442026,
+   "pr_unsafe": 0.6713065418198588,
+   "recall_attacker_fpr10": 0.9854439592430857,
+   "realised_fpr_fpr10": 0.07939051795012333,
+   "recall_attacker_fpr1": 0.7962154294032022,
+   "realised_fpr_fpr1": 0.006557412989860237
+  },
+  "gat__GAT": {
+   "pr_attacker": 0.5569790948463074,
+   "pr_unsafe": 0.4572978989512615,
+   "recall_attacker_fpr10": 0.9432314410480348,
+   "realised_fpr_fpr10": 0.0878224171005755,
+   "recall_attacker_fpr1": 0.731004366812227,
+   "realised_fpr_fpr1": 0.008795834475198683
+  },
+  "mpnn__MPNN": {
+   "pr_attacker": 0.6920196775468839,
+   "pr_unsafe": 0.650864187620684,
+   "recall_attacker_fpr10": 0.9857350800582243,
+   "realised_fpr_fpr10": 0.07609098383118663,
+   "recall_attacker_fpr1": 0.746433770014556,
+   "realised_fpr_fpr1": 0.005491915593313236
+  }
+ },
+ "near70k": {
+  "harm": 815,
+  "expected_harm": 819.7646193709357,
+  "rule__RULE": {
+   "pr_attacker": 0.008843315972222222,
+   "pr_unsafe": 0.012109375,
+   "recall_attacker_fpr10": 0.0,
+   "realised_fpr_fpr10": 0.0,
+   "recall_attacker_fpr1": 0.0,
+   "realised_fpr_fpr1": 0.0
+  },
+  "proto__MLPpub": {
+   "pr_attacker": 0.015694841133402807,
+   "pr_unsafe": 0.021406540978335203,
+   "recall_attacker_fpr10": 0.08392638036809816,
+   "realised_fpr_fpr10": 0.03607266816044989,
+   "recall_attacker_fpr1": 0.0,
+   "realised_fpr_fpr1": 8.567286147357321e-05
+  },
+  "edgefeat__HGB": {
+   "pr_attacker": 0.01123078202225154,
+   "pr_unsafe": 0.015652008313672888,
+   "recall_attacker_fpr10": 0.09177914110429448,
+   "realised_fpr_fpr10": 0.07923421642282852,
+   "recall_attacker_fpr1": 0.0,
+   "realised_fpr_fpr1": 1.3180440226703572e-05
+  },
+  "edgefeatraw__HGB": {
+   "pr_attacker": 0.2682999611611742,
+   "pr_unsafe": 0.4370888827991347,
+   "recall_attacker_fpr10": 0.9955828220858896,
+   "realised_fpr_fpr10": 0.1493563551689293,
+   "recall_attacker_fpr1": 0.5516564417177915,
+   "realised_fpr_fpr1": 0.011800887482975263
+  },
+  "gat__GAT": {
+   "pr_attacker": 0.10317905338261453,
+   "pr_unsafe": 0.12056314887315818,
+   "
+d2 {'mpnn__MPNN - edgefeatraw__HGB': (-0.221, [-0.319, -0.083]), 'mpnn__MPNN - edgefeat__HGB': (0.208, [0.068, 0.348]), 'mpnn__MPNN - gat__GAT': (0.274, [0.166, 0.381]), 'mpnn__MPNN - proto__MLPpub': (0.305, [0.201, 0.414]), 'mpnn__MPNN - rule__RULE': (0.07, [-0.11, 0.252])}
+cutoff {'mpnn__MPNN - edgefeatraw__HGB': (-0.062, [-0.127, 0.03]), 'mpnn__MPNN - edgefeat__HGB': (0.015, [-0.073, 0.136]), 'mpnn__MPNN - gat__GAT': (0.144, [0.056, 0.254]), 'mpnn__MPNN - proto__MLPpub': (0.252, [0.162, 0.367]), 'mpnn__MPNN - rule__RULE': (0.024, [-0.076, 0.156])}
+fovfree {'mpnn__MPNN - edgefeatraw__HGB': (-0.05, [-0.112, 0.019]), 'mpnn__MPNN - edgefeat__HGB': (0.132, [0.078, 0.18]), 'mpnn__MPNN - gat__GAT': (0.121, [0.071, 0.154]), 'mpnn__MPNN - proto__MLPpub': (0.262, [0.165, 0.346]), 'mpnn__MPNN - rule__RULE': (0.186, [0.06, 0.295])}
+and {'mpnn__MPNN - edgefeatraw__HGB': (-0.051, [-0.134, 0.042]), 'mpnn__MPNN - edgefeat__HGB': (0.208, [0.139, 0.284]), 'mpnn__MPNN - gat__GAT': (0.292, [0.198, 0.386]), 'mpnn__MPNN - proto__MLPpub': (0.404, [0.333, 0.467]), 'mpnn__MPNN - rule__RULE': (0.181, [0.077, 0.289])}
+sat {'mpnn__MPNN - edgefeatraw__HGB': (-0.067, [-0.141, 0.005]), 'mpnn__MPNN - edgefeat__HGB': (0.182, [0.117, 0.25]), 'mpnn__MPNN - gat__GAT': (0.274, [0.173, 0.385]), 'mpnn__MPNN - proto__MLPpub': (0.366, [0.291, 0.425]), 'mpnn__MPNN - rule__RULE': (0.175, [0.073, 0.28])}
+rand00 {'mpnn__MPNN - edgefeatraw__HGB': (0.027, [-0.008, 0.06]), 'mpnn__MPNN - edgefeat__HGB': (0.111, [0.059, 0.155]), 'mpnn__MPNN - gat__GAT': (0.151, [0.067, 0.234]), 'mpnn__MPNN - proto__MLPpub': (0.277, [0.199, 0.354]), 'mpnn__MPNN - rule__RULE': (0.162, [0.082, 0.23])}
+rand01 {'mpnn__MPNN - edgefeatraw__HGB': (0.004, [-0.001, 0.014]), 'mpnn__MPNN - edgefeat__HGB': (0.003, [-0.002, 0.011]), 'mpnn__MPNN - gat__GAT': (0.005, [-0.002, 0.019]), 'mpnn__MPNN - proto__MLPpub': (0.017, [0.007, 0.034]), 'mpnn__MPNN - rule__RULE': (0.003, [-0.003, 0.008])}
+rand02 {'mpnn__MPNN - edgefeatraw__HGB': (-0.138, [-0.226, -0.068]), 'mpnn__MPNN - edgefeat__HGB': (0.165, [0.031, 0.296]), 'mpnn__MPNN - gat__GAT': (0.351, [0.218, 0.443]), 'mpnn__MPNN - proto__MLPpub': (0.453, [0.338, 0.516]), 'mpnn__MPNN - rule__RULE': (0.343, [0.199, 0.461])}
+rand03 {'mpnn__MPNN - edgefeatraw__HGB': (0.091, [0.023, 0.18]), 'mpnn__MPNN - edgefeat__HGB': (0.208, [0.115, 0.314]), 'mpnn__MPNN - gat__GAT': (0.153, [0.052, 0.261]), 'mpnn__MPNN - proto__MLPpub': (0.555, [0.396, 0.665]), 'mpnn__MPNN - rule__RULE': (0.434, [0.244, 0.584])}
+rand04 {'mpnn__MPNN - edgefeatraw__HGB': (-0.027, [-0.073, 0.02]), 'mpnn__MPNN - edgefeat__HGB': (0.053, [-0.008, 0.108]), 'mpnn__MPNN - gat__GAT': (0.011, [-0.045, 0.073]), 'mpnn__MPNN - proto__MLPpub': (0.36, [0.265, 0.452]), 'mpnn__MPNN - rule__RULE': (0.199, [0.09, 0.297])}
+rand05 {'mpnn__MPNN - edgefeatraw__HGB': (0.041, [-0.083, 0.161]), 'mpnn__MPNN - edgefeat__HGB': (0.246, [0.076, 0.411]), 'mpnn__MPNN - gat__GAT': (0.222, [0.162, 0.278]), 'mpnn__MPNN - proto__MLPpub': (0.483, [0.332, 0.617]), 'mpnn__MPNN - rule__RULE': (0.267, [0.046, 0.47])}
+rand06 {'mpnn__MPNN - edgefeatraw__HGB': (0.014, [-0.013, 0.042]), 'mpnn__MPNN - edgefeat__HGB': (0.048, [0.019, 0.077]), 'mpnn__MPNN - gat__GAT': (0.063, [0.019, 0.095]), 'mpnn__MPNN - proto__MLPpub': (0.368, [0.292, 0.427]), 'mpnn__MPNN - rule__RULE': (0.443, [0.346, 0.514])}
+rand07 {'mpnn__MPNN - edgefeatraw__HGB': (0.06, [0.019, 0.098]), 'mpnn__MPNN - edgefeat__HGB': (0.089, [0.039, 0.133]), 'mpnn__MPNN - gat__GAT': (0.079, [0.038, 0.118]), 'mpnn__MPNN - proto__MLPpub': (0.329, [0.254, 0.405]), 'mpnn__MPNN - rule__RULE': (0.226, [0.154, 0.294])}
+rand08 {'mpnn__MPNN - edgefeatraw__HGB': (-0.008, [-0.02, -0.001]), 'mpnn__MPNN - edgefeat__HGB': (-0.001, [-0.006, 0.001]), 'mpnn__MPNN - gat__GAT': (-0.0, [-0.002, 0.001]), 'mpnn__MPNN - proto__MLPpub': (0.005, [0.003, 0.008]), 'mpnn__MPNN - rule__RULE': (-0.01, [-0.041, 0.006])}
+rand09 {'mpnn__MPNN - edgefeatraw__HGB': (0.001, [-0.001, 0.003]), 'mpnn__MPNN - edgefeat__HGB': (0.002, [-0.0, 0.003]), 'mpnn__MPNN - gat__GAT': (0.0, [-0.001, 0.001]), 'mpnn__MPNN - proto__MLPpub': (0.005, [0.003, 0.006]), 'mpnn__MPNN - rule__RULE': (0.007, [0.005, 0.009])}
+rand10 {'mpnn__MPNN - edgefeatraw__HGB': (-0.001, [-0.006, 0.003]), 'mpnn__MPNN - edgefeat__HGB': (-0.0, [-0.004, 0.003]), 'mpnn__MPNN - gat__GAT': (-0.0, [-0.002, 0.001]), 'mpnn__MPNN - proto__MLPpub': (0.01, [0.006, 0.014]), 'mpnn__MPNN - rule__RULE': (-0.003, [-0.015, 0.004])}
+rand11 {'mpnn__MPNN - edgefeatraw__HGB': (0.054, [-0.022, 0.117]), 'mpnn__MPNN - edgefeat__HGB': (0.167, [0.071, 0.244]), 'mpnn__MPNN - gat__GAT': (0.03, [-0.038, 0.116]), 'mpnn__MPNN - proto__MLPpub': (0.32, [0.154, 0.442]), 'mpnn__MPNN - rule__RULE': (0.222, [0.067, 0.337])}
+dose_ramp {'mpnn__MPNN - edgefeatraw__HGB': (-0.023, [-0.098, 0.063]), 'mpnn__MPNN - edgefeat__HGB': (0.208, [0.131, 0.282]), 'mpnn__MPNN - gat__GAT': (0.286, [0.182, 0.381]), 'mpnn__MPNN - proto__MLPpub': (0.366, [0.277, 0.439]), 'mpnn__MPNN - rule__RULE': (0.142, [0.028, 0.26]), 'mpnn_ema__MPNN - mpnn__MPNN': (-0.049, [-0.095, -0.0]), 'mpnn_cm__MPNN - mpnn__MPNN': (0.003, [-0.022, 0.03]), 'edgefeat_ema__HGB - edgefeat__HGB': (-0.05, [-0.073, -0.024]), 'edgefeat_cm__HGB - edgefeat__HGB': (-0.008, [-0.026, 0.006])}
+dose_intermittent {'mpnn__MPNN - edgefeatraw__HGB': (-0.042, [-0.081, 0.003]), 'mpnn__MPNN - edgefeat__HGB': (0.219, [0.111, 0.336]), 'mpnn__MPNN - gat__GAT': (0.216, [0.129, 0.308]), 'mpnn__MPNN - proto__MLPpub': (0.278, [0.183, 0.378]), 'mpnn__MPNN - rule__RULE': (0.226, [0.115, 0.333]), 'mpnn_ema__MPNN - mpnn__MPNN': (0.077, [0.044, 0.106]), 'mpnn_cm__MPNN - mpnn__MPNN': (0.103, [0.054, 0.139]), 'edgefeat_ema__HGB - edgefeat__HGB': (0.03, [0.006, 0.058]), 'edgefeat_cm__HGB - edgefeat__HGB': (0.052, [0.02, 0.092])}
+lockbox {'mpnn__MPNN - rule__RULE': (0.423, [0.344, 0.487]), 'mpnn__MPNN - proto__MLPpub': (0.49, [0.429, 0.545]), 'mpnn__MPNN - edgefeat__HGB': (0.246, [0.181, 0.319]), 'mpnn__MPNN - edgefeatraw__HGB': (-0.055, [-0.105, -0.009]), 'mpnn__MPNN - gat__GAT': (0.207, [0.161, 0.251])}
+EXIT 0
