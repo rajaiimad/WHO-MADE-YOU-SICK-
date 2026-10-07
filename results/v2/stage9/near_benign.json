@@ -1,0 +1,221 @@
+{
+  "harm": {
+    "standard": {
+      "attacker_induced": 687,
+      "expected": 713.4946127984857,
+      "relative": 1.0
+    },
+    "near_top": {
+      "attacker_induced": 815,
+      "expected": 819.7646193709357,
+      "relative": 1.1863173216885008
+    },
+    "near_benign": {
+      "attacker_induced": 464,
+      "expected": 461.22925750880233,
+      "relative": 0.6754002911208151
+    }
+  },
+  "detection": {
+    "mpnn__MPNN": {
+      "standard": {
+        "pr_attacker": 0.6920196775468839,
+        "pr_unsafe": 0.650864187620684,
+        "recall_attacker_fpr10": 0.9857350800582243,
+        "realised_fpr_fpr10": 0.07609098383118663,
+        "recall_attacker_fpr1": 0.746433770014556,
+        "realised_fpr_fpr1": 0.005491915593313236
+      },
+      "near_top": {
+        "pr_attacker": 0.24401891285902838,
+        "pr_unsafe": 0.34399652985739476,
+        "recall_attacker_fpr10": 0.9938650306748468,
+        "realised_fpr_fpr10": 0.13829576907868724,
+        "recall_attacker_fpr1": 0.34036809815950925,
+        "realised_fpr_fpr1": 0.00610034708492597
+      },
+      "near_benign": {
+        "pr_attacker": 0.15394146654032048,
+        "pr_unsafe": 0.30090741745353466,
+        "recall_attacker_fpr10": 0.9814655172413792,
+        "realised_fpr_fpr10": 0.1299152032386892,
+        "recall_attacker_fpr1": 0.2551724137931034,
+        "realised_fpr_fpr1": 0.0039017451720553637
+      }
+    },
+    "edgefeatraw__HGB": {
+      "standard": {
+        "pr_attacker": 0.5929029017442026,
+        "pr_unsafe": 0.6713065418198589,
+        "recall_attacker_fpr10": 0.9854439592430857,
+        "realised_fpr_fpr10": 0.07939051795012333,
+        "recall_attacker_fpr1": 0.7962154294032022,
+        "realised_fpr_fpr1": 0.006557412989860237
+      },
+      "near_top": {
+        "pr_attacker": 0.26829996116117416,
+        "pr_unsafe": 0.4370888827991347,
+        "recall_attacker_fpr10": 0.9955828220858896,
+        "realised_fpr_fpr10": 0.1493563551689293,
+        "recall_attacker_fpr1": 0.5516564417177915,
+        "realised_fpr_fpr1": 0.011800887482975263
+      },
+      "near_benign": {
+        "pr_attacker": 0.15537892804895875,
+        "pr_unsafe": 0.393665799324969,
+        "recall_attacker_fpr10": 0.9849137931034482,
+        "realised_fpr_fpr10": 0.13270529022375405,
+        "recall_attacker_fpr1": 0.4193965517241379,
+        "realised_fpr_fpr1": 0.007293615624487116
+      }
+    },
+    "edgefeat__HGB": {
+      "standard": {
+        "pr_attacker": 0.5583140436735524,
+        "pr_unsafe": 0.4247049871312899,
+        "recall_attacker_fpr10": 0.973216885007278,
+        "realised_fpr_fpr10": 0.11787558235132914,
+        "recall_attacker_fpr1": 0.821834061135371,
+        "realised_fpr_fpr1": 0.009657440394628665
+      },
+      "near_top": {
+        "pr_attacker": 0.01123078202225154,
+        "pr_unsafe": 0.015652008313672888,
+        "recall_attacker_fpr10": 0.09177914110429448,
+        "realised_fpr_fpr10": 0.07923421642282852,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 1.3180440226703572e-05
+      },
+      "near_benign": {
+        "pr_attacker": 0.006422852864505638,
+        "pr_unsafe": 0.010862365145196552,
+        "recall_attacker_fpr10": 0.08706896551724139,
+        "realised_fpr_fpr10": 0.07930630778488976,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 1.312982110618743e-05
+      }
+    },
+    "gat__GAT": {
+      "standard": {
+        "pr_attacker": 0.5569790948463074,
+        "pr_unsafe": 0.4572978989512615,
+        "recall_attacker_fpr10": 0.9432314410480348,
+        "realised_fpr_fpr10": 0.0878224171005755,
+        "recall_attacker_fpr1": 0.731004366812227,
+        "realised_fpr_fpr1": 0.008795834475198683
+      },
+      "near_top": {
+        "pr_attacker": 0.10317905338261453,
+        "pr_unsafe": 0.12056314887315818,
+        "recall_attacker_fpr10": 0.7249079754601226,
+        "realised_fpr_fpr10": 0.12434866657879706,
+        "recall_attacker_fpr1": 0.14429447852760738,
+        "realised_fpr_fpr1": 0.006265102587759764
+      },
+      "near_benign": {
+        "pr_attacker": 0.05439862361879786,
+        "pr_unsafe": 0.08274305239541814,
+        "recall_attacker_fpr10": 0.6456896551724138,
+        "realised_fpr_fpr10": 0.10765140324963071,
+        "recall_attacker_fpr1": 0.10129310344827587,
+        "realised_fpr_fpr1": 0.003958641063515509
+      }
+    },
+    "rule__RULE": {
+      "standard": {
+        "pr_attacker": 0.3402492898132946,
+        "pr_unsafe": 0.25658931610165997,
+        "recall_attacker_fpr10": 0.9796215429403203,
+        "realised_fpr_fpr10": 0.10726884077829543,
+        "recall_attacker_fpr1": 0.615429403202329,
+        "realised_fpr_fpr1": 0.01222252671964922
+      },
+      "near_top": {
+        "pr_attacker": 0.008843315972222222,
+        "pr_unsafe": 0.012109375,
+        "recall_attacker_fpr10": 0.0,
+        "realised_fpr_fpr10": 0.0,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 0.0
+      },
+      "near_benign": {
+        "pr_attacker": 0.0050347222222222225,
+        "pr_unsafe": 0.00830078125,
+        "recall_attacker_fpr10": 0.0,
+        "realised_fpr_fpr10": 0.0,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 0.0
+      }
+    },
+    "proto__MLPpub": {
+      "standard": {
+        "pr_attacker": 0.16188884266261777,
+        "pr_unsafe": 0.12951066255447044,
+        "recall_attacker_fpr10": 0.7671033478893741,
+        "realised_fpr_fpr10": 0.10222855576870375,
+        "recall_attacker_fpr1": 0.34061135371179035,
+        "realised_fpr_fpr1": 0.010560701562071801
+      },
+      "near_top": {
+        "pr_attacker": 0.015694841133402807,
+        "pr_unsafe": 0.021406540978335203,
+        "recall_attacker_fpr10": 0.08392638036809816,
+        "realised_fpr_fpr10": 0.03607266816044989,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 8.567286147357321e-05
+      },
+      "near_benign": {
+        "pr_attacker": 0.008244319950360148,
+        "pr_unsafe": 0.014233621446271211,
+        "recall_attacker_fpr10": 0.06681034482758622,
+        "realised_fpr_fpr10": 0.03308058427703923,
+        "recall_attacker_fpr1": 0.0,
+        "realised_fpr_fpr1": 7.877892663712457e-05
+      }
+    }
+  },
+  "attribution": {
+    "standard": {
+      "rule": {
+        "roc_auc": 0.9562946010805354,
+        "pr_auc": 0.4261361450613884,
+        "top1": 0.9853357605177994,
+        "top2": 0.9911003236245954
+      },
+      "learned": {
+        "roc_auc": 0.9921141158298596,
+        "pr_auc": 0.9532870447392774,
+        "top1": 0.9815331715210356,
+        "top2": 0.9958940129449838
+      }
+    },
+    "near_top": {
+      "rule": {
+        "roc_auc": 0.5,
+        "pr_auc": 0.05486111111111111,
+        "top1": 0.370253164556962,
+        "top2": 0.629746835443038
+      },
+      "learned": {
+        "roc_auc": 0.9785378880527802,
+        "pr_auc": 0.703626116393344,
+        "top1": 0.9934994725738397,
+        "top2": 0.9999077004219409
+      }
+    },
+    "near_benign": {
+      "rule": {
+        "roc_auc": 0.5,
+        "pr_auc": 0.052083333333333336,
+        "top1": 0.37,
+        "top2": 0.63
+      },
+      "learned": {
+        "roc_auc": 0.8346210164570189,
+        "pr_auc": 0.1487982827381551,
+        "top1": 0.7193888888888889,
+        "top2": 0.9635694444444445
+      }
+    }
+  }
+}

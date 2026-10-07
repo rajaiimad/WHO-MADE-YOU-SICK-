@@ -156,9 +156,12 @@ def generate(seed0, n_cohorts, v, gain, N=4, tracks=8, T=48, with_backbone=True)
                     for t in np.where(m)[0]:
                         k = ks[t]
                         PC[u, t, k] = rng.uniform(BEN_HI[k], BEN_HI[k] + 0.5 * (PEER_HI[k] - BEN_HI[k]))
-            if v.get("near") and is_atk:    # attack channel held at the top of the benign band
+            if v.get("near") and v.get("near_clamp", True) and is_atk:    # attack channel held at the top of the benign band
                 k = PEER_NAMES.index(ach)
                 PC[aid, :, k] = BEN_HI[k]
+            if v.get("near") and not v.get("near_clamp", True) and is_atk:   # PREREGISTRATION_v9: fully benign channels
+                k = PEER_NAMES.index(ach)
+                PC[aid, :, k] = np.random.default_rng([seed0 + cid, tk, 9]).uniform(PEER_CHANNELS[k].benign_lo, BEN_HI[k], T)
             # per-frame poses
             pos = np.zeros((N, T, 3)); ori = np.zeros((N, T, 3)); fov = np.array([p[2] for p in poses])
             for u in range(N):

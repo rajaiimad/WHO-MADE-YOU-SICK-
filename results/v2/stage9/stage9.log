@@ -1,0 +1,12 @@
+harm {'standard': {'attacker_induced': 687, 'expected': 713.4946127984857, 'relative': 1.0}, 'near_top': {'attacker_induced': 815, 'expected': 819.7646193709357, 'relative': 1.1863173216885008}, 'near_benign': {'attacker_induced': 464, 'expected': 461.22925750880233, 'relative': 0.6754002911208151}}
+mpnn__MPNN {'standard': 0.692, 'near_top': 0.244, 'near_benign': 0.154} {'standard': 0.746, 'near_top': 0.34, 'near_benign': 0.255} (166s)
+edgefeatraw__HGB {'standard': 0.593, 'near_top': 0.268, 'near_benign': 0.155} {'standard': 0.796, 'near_top': 0.552, 'near_benign': 0.419} (207s)
+edgefeat__HGB {'standard': 0.558, 'near_top': 0.011, 'near_benign': 0.006} {'standard': 0.822, 'near_top': 0.0, 'near_benign': 0.0} (223s)
+gat__GAT {'standard': 0.557, 'near_top': 0.103, 'near_benign': 0.054} {'standard': 0.731, 'near_top': 0.144, 'near_benign': 0.101} (383s)
+rule__RULE {'standard': 0.34, 'near_top': 0.009, 'near_benign': 0.005} {'standard': 0.615, 'near_top': 0.0, 'near_benign': 0.0} (384s)
+proto__MLPpub {'standard': 0.162, 'near_top': 0.016, 'near_benign': 0.008} {'standard': 0.341, 'near_top': 0.0, 'near_benign': 0.0} (417s)
+attribution standard {'rule': 0.985, 'learned': 0.982}
+attribution near_top {'rule': 0.37, 'learned': 0.993}
+attribution near_benign {'rule': 0.37, 'learned': 0.719}
+done 435s
+EXIT 0
