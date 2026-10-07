@@ -64,8 +64,8 @@ def fig_protocol():
     box(ax, 0.27, 0.62, 0.34, 0.30, "Development corpus: 60 cohorts\n5 repeats × 5 cohort-disjoint folds\ninner split per fold:\n36 train / 12 validation cohorts")
     box(ax, 0.67, 0.62, 0.33, 0.30, "Validation cohorts only: hyper-\nparameters, early stopping, Platt\ncalibration, decision thresholds")
     box(ax, 0.27, 0.10, 0.34, 0.34, "Final models: trained once per seed\n(45 train / 15 validation cohorts)\nconfiguration fixed by the CV\n(pre-registered before scoring)")
-    box(ax, 0.67, 0.10, 0.33, 0.34, "Lock-box: 120 unseen cohorts,\nscored once  +  stress corpora\n(cohort size, generator shift,\nadaptive attacker, decoupling)", fc="#fdf0ea", ec=ORANGE)
-    box(ax, 0.00, 0.10, 0.21, 0.34, "11 automated\nleakage checks\n(all pass)", fc="#eaf2fb", ec=BLUE)
+    box(ax, 0.67, 0.10, 0.33, 0.34, "Lock-boxes 1 and 2: 120 unseen\ncohorts each, scored once\n+ stress corpora, adaptive attackers,\n19-generator family, transfer", fc="#fdf0ea", ec=ORANGE)
+    box(ax, 0.00, 0.10, 0.21, 0.34, "12 automated\nleakage checks\n(all pass)", fc="#eaf2fb", ec=BLUE)
     arrow(ax, (0.21, 0.77), (0.27, 0.77)); arrow(ax, (0.61, 0.77), (0.67, 0.77))
     arrow(ax, (0.44, 0.62), (0.44, 0.44)); arrow(ax, (0.61, 0.27), (0.67, 0.27))
     fig.savefig(FIG / "Fig_protocol.png", bbox_inches="tight"); plt.close(fig)
@@ -101,9 +101,11 @@ def fig_lockbox():
 def fig_channels():
     pc = J("per_channel_detection_lockbox.json")
     fig, axs = plt.subplots(1, 2, figsize=(7.1, 2.5))
-    xs = range(len(PEER_NAMES)); w = 0.36
+    xs = range(len(PEER_NAMES)); w = 0.16
+    SER = ((-2 * w, "proto__MLPpub", BLUE, "Prototype (original MLP)"), (-w, "rule__RULE", "#7a7a7a", "Rule detector"),
+           (0, "gat__GAT", "#9b59b6", "GAT"), (w, "mpnn__MPNN", ORANGE, "MPNN"), (2 * w, "edgefeatraw__HGB", "#b5341c", "Raw-channel int. HGB"))
     for ax, k, ttl in ((axs[0], 0, "ROC-AUC by attack channel"), (axs[1], 1, "PR-AUC by attack channel")):
-        for off, m, c, l in ((-w / 2, "proto__MLPpub", BLUE, "Prototype (original MLP)"), (w / 2, "mpnn__MPNN", ORANGE, "MPNN")):
+        for off, m, c, l in SER:
             ax.bar([x + off for x in xs], [pc[ch][m][k] for ch in PEER_NAMES], width=w, color=c, edgecolor="white", lw=2, label=l)
         ax.scatter(list(xs), [pc[ch]["ORACLE"][k] for ch in PEER_NAMES], marker="_", s=260, color=INK, zorder=3, label="Generator ceiling")
         ax.set_xticks(list(xs)); ax.set_xticklabels([CH[c] for c in PEER_NAMES], fontsize=7)

@@ -12,7 +12,8 @@ def main():
     lb = generated_tensors("lockbox", 120)
     y, ch = lb["y"], lb["atk_ch"]
     P = {m: np.mean([np.load(OUT / "final" / m / f"seed{s}" / "preds.npz")["p__lockbox"] for s in SEEDS], 0)
-         for m in ("proto__MLPpub", "proto__LR", "proto__HGB", "mpnn__MPNN")}
+         for m in ("proto__MLPpub", "proto__LR", "proto__HGB", "mpnn__MPNN", "rule__RULE", "edgefeat__HGB", "gat__GAT",
+                   "edgefeatraw__HGB")}
     P["ORACLE"] = 1 - norm.cdf((0.30 - lb["oracle_score"]) / 0.05)
     out = {}
     for c in range(1, 6):

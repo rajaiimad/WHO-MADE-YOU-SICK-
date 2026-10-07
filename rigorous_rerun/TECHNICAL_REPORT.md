@@ -567,3 +567,25 @@ Findings across all 24 detectable generators (family plus Stage-3 variants):
 * Transfer from v2 to the other generators: both per-edge models lose at least 30% of their PR in 9 of 13 detectable generators, and the rule is the best transferred detector in 4.
 
 Framing decision (user): the paper reports benchmark findings and proposes no method (`main_revised7.tex`).
+
+## 16. Round-3 review fixes: lock-box 2 and family-level reporting
+* **Lock-box 2** (PREREGISTRATION_v8, commit 37071ec): 120 fresh cohorts, seeds 80000–80119, prevalence 1.32%, scored once (`stage8_lockbox2.py`, `outputs_v2/stage8/lockbox2.json`). PR-AUC:
+
+  | target | raw HGB | MPNN | difference (MPNN − raw HGB) |
+  |---|---|---|---|
+  | unsafe | 0.703 | 0.656 | −0.048 [−0.087, −0.005] |
+  | attacker-induced | 0.486 | 0.647 | +0.162 [+0.075, +0.243] |
+
+  It confirms the target-dependent ranking on untouched data. All other detectors score ≤ 0.436 on the unsafe target; the ceiling is 0.806.
+* **Counting:** the Stage-3 `dose` and Stage-7 `dose_ramp` generators are identical, so the distinct detectable generators number 23. A full-state per-edge detector wins in 22 of them; the exception is g2, where the rule wins.
+* **Holm correction** over 23 paired comparisons: the raw HGB is significantly better in d2, rand02 and g6; the MPNN is significant in none.
+* **Median training-seed SD** of PR-AUC: MPNN 0.034, raw HGB 0.021.
+* **Family reference scores** (PR-AUC / ceiling over the 15 detectable family generators):
+
+  | detector | within: mean | within: worst | transferred from v2 (13): mean | transferred: worst |
+  |---|---|---|---|---|
+  | raw HGB | 0.661 | 0.491 | 0.397 | 0.170 |
+  | MPNN | 0.630 | 0.376 | 0.394 | 0.161 |
+  | rule | 0.350 | — | 0.357 | 0.235 (best) |
+* **Within-band attacker, attribution:** the rule's top-1 is 0.370 (chance); learned attribution reaches 0.993.
+* Manuscript: `main_revised8.tex` (`stage8_build.py`); numbers are checked by `check_numbers8.py` (39/39).
