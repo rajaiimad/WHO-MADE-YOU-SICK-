@@ -589,3 +589,15 @@ Framing decision (user): the paper reports benchmark findings and proposes no me
   | rule | 0.350 | — | 0.357 | 0.235 (best) |
 * **Within-band attacker, attribution:** the rule's top-1 is 0.370 (chance); learned attribution reaches 0.993.
 * Manuscript: `main_revised8.tex` (`stage8_build.py`); numbers are checked by `check_numbers8.py` (39/39).
+
+## 17. Round-4 review fixes
+* **Proximity-only attacker** (PREREGISTRATION_v9, commit 6c7c7f5; `stage9_near_benign.py`). Its channels are drawn from the benign band and only its pose is adversarial.
+  * Harm: 0.68× the standard attack.
+  * PR-AUC: MPNN 0.154, raw HGB 0.155; excess-only detectors ≈ 0.
+  * Recall at the 1% budget: MPNN 0.255, raw HGB 0.419.
+  * Attribution top-1: rule 0.370 (chance); learned model 0.719, against 0.993 for the top-of-band attacker. Part of the earlier attribution result came from the top-of-band value.
+* **Win-count uncertainty** (`stage9_wincount.py`): the paired bootstrap of best full-state minus best other detector excludes 0 in 13 of 15 detectable family generators. The two ties are rand04 and rand11.
+* **Undetectable generators:** all four use soft-max aggregation.
+* **Transfer beats within-generator training** on and, sat and cutoff. Their development prevalence is 0.86–1.07%, against 1.67% for v2.
+* **On the security target, the full-state advantage reverses.** On lock-box 2 the excess-only HGB (0.556) and the GAT (0.542) beat the raw HGB (0.486); the MPNN leads (0.647).
+* Manuscript: `main_revised9.tex` (`stage9_build.py`); numbers are checked by `check_numbers9.py` (44/44).
