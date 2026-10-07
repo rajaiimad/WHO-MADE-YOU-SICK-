@@ -601,3 +601,26 @@ Framing decision (user): the paper reports benchmark findings and proposes no me
 * **Transfer beats within-generator training** on and, sat and cutoff. Their development prevalence is 0.86–1.07%, against 1.67% for v2.
 * **On the security target, the full-state advantage reverses.** On lock-box 2 the excess-only HGB (0.556) and the GAT (0.542) beat the raw HGB (0.486); the MPNN leads (0.647).
 * Manuscript: `main_revised9.tex` (`stage9_build.py`); numbers are checked by `check_numbers9.py` (44/44).
+
+## 18. Round-5 review (8/8 minor revision) and final polish
+Analyses in `stage10_extra.py` (`outputs_v2/stage10/extra.json`):
+* **Per-attack ceiling PR-AUC** (attacker-induced target):
+
+  | attack | ceiling |
+  |---|---|
+  | standard | 0.844 |
+  | out of view | 0.977 |
+  | out of view, ≥ 1 m | 0.894 |
+  | switching | 0.862 |
+  | split | 0.709 |
+  | within-band, top of band | 0.483 |
+  | proximity-only | 0.374 |
+* **Lock-box 2 per training seed** (MPNN − raw HGB): every seed has the same sign.
+  * Unsafe target: −0.075 to −0.012.
+  * Attacker target: +0.142 to +0.194.
+* **Geometry-only attribution rule** (pick the closest in-view peer), top-1:
+  * standard attack 0.451;
+  * within-band (top of band) 0.851;
+  * proximity-only 0.877, which is better than the learned model there (0.719).
+
+Manuscript: `main_revised10.tex` (`stage10_build.py`); numbers are checked by `check_numbers10.py` (48/48). Word output: `main_revised10_IEEE.docx`, 22 pages.
