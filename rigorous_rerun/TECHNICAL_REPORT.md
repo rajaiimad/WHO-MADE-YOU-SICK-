@@ -624,3 +624,8 @@ Analyses in `stage10_extra.py` (`outputs_v2/stage10/extra.json`):
   * proximity-only 0.877, which is better than the learned model there (0.719).
 
 Manuscript: `main_revised10.tex` (`stage10_build.py`); numbers are checked by `check_numbers10.py` (48/48). Word output: `main_revised10_IEEE.docx`, 22 pages.
+
+## 19. Pre-submission audit (11 Oct 2026)
+* Federated comparison made like-for-like (`stage11_fed_reference.py`): centralised MPNN on the federated test folds (outer fold 0 of each repeat) reaches PR-AUC 0.751 / ROC-AUC 0.987 (previously compared with the all-fold 0.617).
+* Lock-box 1 chronology disclosed in the manuscript (§VI-C): pre-registration first committed with results; same seeds scored under v1 during the generator audit; reused for later baselines; bootstrap B=1000 instead of the pre-registered 2000.
+* `verify_stage7.py` re-run: all checks pass. Manuscript audit, change log, and verdict: `final_submission_v11/`.
