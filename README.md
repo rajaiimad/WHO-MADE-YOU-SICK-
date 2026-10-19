@@ -94,3 +94,7 @@ federated experiments).
   calibration and thresholds use validation cohorts only.
 * Lock-box: 120 fresh cohorts, scored once by pre-registered models.
 * Reference ceiling: P(score + N(0, 0.05) > 0.30) from the generator's hidden score.
+
+## License
+
+Code, generated corpora, and results are released under the MIT License (see `LICENSE`). All data in this repository are synthetic and were produced by the generator in this repository.
