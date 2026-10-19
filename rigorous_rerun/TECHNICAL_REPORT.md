@@ -569,7 +569,7 @@ Findings across all 24 detectable generators (family plus Stage-3 variants):
 Framing decision (user): the paper reports benchmark findings and proposes no method (`main_revised7.tex`).
 
 ## 16. Round-3 review fixes: lock-box 2 and family-level reporting
-* **Lock-box 2** (PREREGISTRATION_v8, commit 37071ec): 120 fresh cohorts, seeds 80000–80119, prevalence 1.32%, scored once (`stage8_lockbox2.py`, `outputs_v2/stage8/lockbox2.json`). PR-AUC:
+* **Lock-box 2** (PREREGISTRATION_v8, commit a06a65b): 120 fresh cohorts, seeds 80000–80119, prevalence 1.32%, scored once (`stage8_lockbox2.py`, `outputs_v2/stage8/lockbox2.json`). PR-AUC:
 
   | target | raw HGB | MPNN | difference (MPNN − raw HGB) |
   |---|---|---|---|
@@ -591,7 +591,7 @@ Framing decision (user): the paper reports benchmark findings and proposes no me
 * Manuscript: `main_revised8.tex` (`stage8_build.py`); numbers are checked by `check_numbers8.py` (39/39).
 
 ## 17. Round-4 review fixes
-* **Proximity-only attacker** (PREREGISTRATION_v9, commit 6c7c7f5; `stage9_near_benign.py`). Its channels are drawn from the benign band and only its pose is adversarial.
+* **Proximity-only attacker** (PREREGISTRATION_v9, commit ef58a29; `stage9_near_benign.py`). Its channels are drawn from the benign band and only its pose is adversarial.
   * Harm: 0.68× the standard attack.
   * PR-AUC: MPNN 0.154, raw HGB 0.155; excess-only detectors ≈ 0.
   * Recall at the 1% budget: MPNN 0.255, raw HGB 0.419.
